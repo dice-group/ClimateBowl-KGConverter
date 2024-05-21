@@ -1,0 +1,573 @@
+@prefix clbo: <https://climatebowl.data.dice-research.org/ontology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://climatebowl.data.dice-research.org/ontology/> a owl:Ontology ;
+    dc:title "Climate Bowl Schema (CLBO)" ;
+    rdfs:label "ClimateBowl Ontology" ;
+    rdfs:comment """
+    In the joint project climate bOWL,  a consortium from research and industry is developing an intelligent assistance system to reduce greenhouse gas emissions in industry.
+    Greenhouse gas emissions occur along the entire value chain. The identification of suitable reduction measures goes hand in hand with transparency about the emitters of greenhouse gases and is associated with high transaction costs due to the interactions and interdisciplinary nature of production, energy and information technology. On the way to climate neutrality, a holistic approach to the aggregation and evaluation of greenhouse gas emissions as well as the identification and prioritization of greenhouse gas emission reduction measures along the entire value chain is required. The interdisciplinary project team of climate bOWL takes on this challenge.
+    """ .
+# Company
+clbo:Comany a owl:Class;
+    rdfs:label "Company"@en;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Company" .
+
+
+clbo:Product a owl:Class;
+    rdfs:label "Product"@en;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Product" .
+
+clbo:hatProduct a owl:Property ;
+    rdfs:label "has product"@en, "hat Product"@du ;
+    rdfs:domain clbo:Comany ;
+    rdfs:range clbo:Product ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "A company has Product" .
+
+# Prozess Class
+clbo:Prozess a owl:Class ;
+    rdfs:label "Process"@en, "Prozess"@du ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Process" .
+
+clbo:hatProzess a owl:Property ;
+    rdfs:label "has Process"@en, "hat Prozess"@du ;
+    rdfs:domain clbo:Product ;
+    rdfs:range clbo:Prozess ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "A Product has Process" .
+
+clbo:prozessmodul a owl:Property ;
+    rdfs:label "Process Module"@en, "Prozess Modul"@du ;
+    rdfs:domain clbo:Prozess ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment " Name of the process " .
+
+clbo:ZuordnungTeilenummer a owl:Property ;
+    rdfs:label "Allocation Part Number"@en, "Zuordnung Teile nummer"@du ;
+    rdfs:domain clbo:Prozess ;    
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Allocated Part Number for the process" .
+
+# Fluss Class
+clbo:Fluss a owl:Class;
+    rdfs:label "Flow"@en, "Fluss"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Flow for the given process the. Flow can be input flow and Output flow" .
+
+clbo:hatInput a owl:Property ;
+    rdfs:label "has Input"@en, "hat Input"@du ;
+    rdfs:domain clbo:Prozess ;
+    rdfs:range clbo:Fluss ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "A Process has input Flow" .
+
+clbo:hatOutput a owl:Property ;
+    rdfs:domain clbo:Prozess ;
+    rdfs:label "has Output"@en, "hat Output"@du ;
+    rdfs:range clbo:Fluss ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "A Process has Output Flow" .
+
+clbo:relevantPCF a owl:Property;
+    rdfs:domain clbo:Fluss;
+    rdfs:label "Relefent for PCF"@en, "Relevant für PCF"@du;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Flow is relevent for Product Carbon Footprint(PCF)" .
+
+clbo:zuordnungWertschöpfungskette a owl:Property;
+    rdfs:domain clbo:Fluss;
+    rdfs:label "Assignment Value Chain"@en, "Zuordnung Wertschöpfungskette"@du ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Assignment Value chain. There can be there types; Cradle to Gate, Gate-to-Gate, and Gate-to-Grave." .
+
+clbo:scope a owl:Property;
+    rdfs:domain clbo:Fluss;
+    rdfs:label "Scope"@en, "Scope"@du;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Scope" .
+
+clbo:lebenszyklusphase a owl:Property;
+    rdfs:label "Life Cycle Phase"@en, "leben szyklus phase"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Life Cycle Phase" .
+
+clbo:normierteMenge a owl:Property;
+    rdfs:label "normalized amount of flow"@en, "normierte Menge des Flusses"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range xsd:float ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "normalized amount of flow" .
+
+clbo:einheitNormierteMenge a owl:Property;
+    rdfs:label "normalized amount of flow Unit"@en, "Einheit normierte  Menge des Flusses"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range  xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Unit for normalized amount of flow" .
+
+clbo:resultierendeMengejeJeReferenzfluss a owl:Property;
+    rdfs:label "resulting quantity per reference flow"@en, "resultierende Menge je Referenzfluss"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range xsd:float ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "" .
+
+clbo:einheitResultierendeMengejeJeReferenzfluss a owl:Property;
+    rdfs:label "resulting quantity per reference flow unit"@en, "Einheit resultierende Menge je Referenzfluss"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Unit for resulting quantity per reference flow" .
+
+# Kategories
+
+# Material Class
+clbo:Material a owl:Class;
+    rdfs:label "Material"@en, "Material"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Material" .
+
+
+# Metall Class
+clbo:Metall a owl:Class;
+    rdfs:label "Metal"@en, "Metall"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:Material.
+
+# EisenMetall Class
+clbo:Eisenmetall a owl:Class;
+    rdfs:label "Eisenmetall"@de, "Iron Metal"@en;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:Metall.
+
+# NichtEisenMetall Class
+clbo:Nichteisenmetall a owl:Class;
+    rdfs:label "Nicht Eisen Metall"@de, "Non-Iron Metal"@en;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:Metall.
+
+# NichtMetall Class
+clbo:NichtMetall a owl:Class;
+    rdfs:label "Non-Metal"@en, "Nicht Metall"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:Material.
+
+
+# Kohlenstoffmodifikation Class
+clbo:Kohlenstoffmodifikation a owl:Class;
+    rdfs:label "Carbon Modification"@en, "Kohlenstoff Modifikation"@de;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:NichtMetall.
+
+# Polymer Class
+clbo:Polymer a owl:Class;
+    rdfs:label "Polymer"@en, "Polymer"@de;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:subClassOf clbo:NichtMetall.
+
+
+
+# Energie Class
+clbo:Energie a owl:Class;
+    rdfs:label "Energy"@en, "Energie"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Energy" .
+
+
+# Zwischenprodukt Class
+clbo:Zwischenprodukt a owl:Class;
+    rdfs:label "Intermediate product"@en, "Zwischen produkt"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Intermediate product" .
+
+# Abfall Class
+clbo:Abfall a owl:Class;
+    rdfs:label "Waste"@en, "Abfall"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Waste" .
+
+# MaterialEnergietrager Class
+clbo:MaterialEnergietrager a owl:Class;
+    rdfs:label "Material Energy carrier"@en, "Material Energieträger"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Material Energy carrier" .
+
+
+# DirekteEmissionen Class
+clbo:DirekteEmissionen a owl:Class;
+    rdfs:label "direct Emissions"@en, "direkte Emissionen"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "direct Emissions" .
+
+# Endprodukt Class
+clbo:Endprodukt a owl:Class;
+    rdfs:label "End product"@en, "Endprodukt"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "End product" .
+
+clbo:hatKategorie a owl:Property;
+    rdfs:label "Has Category"@en, "Hat Kategorie"@du;
+    rdfs:domain clbo:Fluss;
+    rdfs:range clbo:DirekteEmissionen, clbo:Material, clbo:Energie,clbo:Zwischenprodukt, clbo:Abfall, clbo:MaterialEnergietrager,clbo:Endprodukt;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Has Category" .
+
+# Referenzfluss Class
+clbo:Referenzfluss a owl:Class;
+    rdfs:label "Reference Flow"@en, "Reference Fluss"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Reference Flow" .
+
+clbo:hatReferencezfluss a owl:Property;
+    rdfs:label "Has Reference Flow"@en, "Hat Referencez Fluss"@du;
+    rdfs:domain clbo:Prozess;
+    rdfs:range clbo:Referenzfluss;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Has Reference Flow" .
+
+clbo:referenzfluss a owl:Property;
+    rdfs:label "Reference Flow"@en, "Referencez Fluss"@du;
+    rdfs:domain clbo:Referenzfluss;
+    rdfs:range xsd:float;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Reference Flow" .
+
+clbo:einheit a owl:Property;
+    rdfs:label "unit"@en, "einheit"@du;
+    rdfs:domain clbo:Referenzfluss;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "unit" .
+
+
+# Dokumentation Class
+clbo:Dokumentation a owl:Class;
+    rdfs:label "Documentation"@en, "Dokumentation"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Documentation" .
+
+clbo:hatDokumentation a owl:Property;
+    rdfs:label "Has Documentation"@en, "Hat Dokumentation"@du;
+    rdfs:domain clbo:Prozess;
+    rdfs:range clbo:Dokumentation;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Has Documentation" .
+
+clbo:erfülltDatenqualitätAnforderungen a owl:Property;
+    rdfs:label "Fulfillment of data quality requirements"@en, "Erfüllt Datenqualität Anforderungen"@du;
+    rdfs:domain clbo:Dokumentation;
+    rdfs:range xsd:boolean;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Fulfillment of data quality requirements" .
+
+clbo:datenerhebungsverfahren a owl:Property;
+    rdfs:label "data collection procedures"@en, "datenerhebungsverfahren"@du;
+    rdfs:domain clbo:Dokumentation;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data collection procedure" .
+
+# Allocation Class
+clbo:Allokation a owl:Class;
+    rdfs:label "Allocation"@en, "Allokation"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Allocation" .
+
+clbo:hatAllokation a owl:Property;
+    rdfs:label "Has Allocation"@en, "Hat Allokation"@du;
+    rdfs:domain clbo:Dokumentation;
+    rdfs:range clbo:Allokation;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Has Allocation" .
+
+clbo:allokationsverfahren a owl:Property;
+    rdfs:label "Allocation procedure"@en, "Allokationsverfahren"@du;
+    rdfs:domain clbo:Allokation;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Allocation procedure" .
+
+clbo:istNotwending a owl:Property;
+    rdfs:label "Is necessary"@en, "ist Notwending"@du;
+    rdfs:domain clbo:Allokation;
+    rdfs:range xsd:boolean;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Is necessary" .
+
+# Datenqualitätsbewertung Class
+clbo:Datenqualitätsbewertung a owl:Class;
+    rdfs:label "data quality assessment"@en, "Daten qualitat sbewertung"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality assessment" .
+
+clbo:hatDatenqualitatsbewertung a owl:Property;
+    rdfs:label "Has data quality assessment"@en, "Hat Daten qualitat sbewertung"@du;
+    rdfs:domain clbo:Prozess;
+    rdfs:range clbo:Datenqualitatsbewertung;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Has data quality assessment" .
+
+# Datenqualitatsbewertung A Class
+clbo:DatenqualitätsbewertungA a owl:Class;
+    rdfs:label "data quality assessment A"@en, "Daten qualitat sbewertung A"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality assessment A" .
+
+# Datenqualitatsbewertung B Class
+clbo:DatenqualitätsnormB a owl:Class;
+    rdfs:label "data quality standard B"@en, "Daten qualitat norm B"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard B" .
+
+clbo:hatZeitbezogenerErfassungsbereich a owl:Property;
+    rdfs:label "has time-related coverage"@en, "hat Zeit bezogener Erfassungsbereich"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsbewertungA,clbo:DatenqualitatsnormB;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has time-related coverag" .
+
+clbo:zeitbezogenerErfassungsbereich a owl:Property;
+    rdfs:label "time-related coverage"@en, "Zeit bezogener Erfassungsbereich"@du;
+    rdfs:domain clbo:DatenqualitatsbewertungA,
+        clbo:DatenqualitatsnormB;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "time-related coverage" .
+
+# Datenqualitätsnorm C Class
+clbo:DatenqualitätsnormC a owl:Class;
+    rdfs:label "data quality standard C"@en, "Daten qualitat norm C"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard C" .
+
+clbo:hatTechnologischerErfassungsbereich a owl:Property;
+    rdfs:label "has technological detection range"@en, "hat Technologischer Erfassungsbereich  "@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormC;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has technological detection range" .
+
+clbo:technologischerErfassungsbereich a owl:Property;
+    rdfs:label "time-related coverage"@en, "Zeit bezogener Erfassungsbereich"@du;
+    rdfs:domain clbo:DatenqualitatsnormC;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "time-related coverage" .
+
+# Datenqualitätsnorm D Class
+clbo:DatenqualitätsnormD a owl:Class;
+    rdfs:label "data quality standard D"@en, "Daten qualitat norm D"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard D" .
+
+clbo:hatGenauigkeit a owl:Property;
+    rdfs:label "has technological detection range"@en, "hat genauigkeit"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormD;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has technological detection range" .
+
+clbo:genauigkeit a owl:Property;
+    rdfs:label "accuracy"@en, "genauigkeit"@du;
+    rdfs:domain clbo:DatenqualitatsnormD;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "accuracy" .
+
+# Datenqualitätsnorm E Class
+clbo:DatenqualitätsnormE a owl:Class;
+    rdfs:label "data quality standard E"@en, "Daten qualitat norm E"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard E" .
+
+clbo:hatVollstandigkeit a owl:Property;
+    rdfs:label "has Completeness"@en, "hat Vollstandigkeit"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormE;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has Completeness" .
+
+clbo:vollstandigkeit a owl:Property;
+    rdfs:label "Completeness"@en, "Vollstandigkeit"@du;
+    rdfs:domain clbo:DatenqualitatsnormE;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Completeness" .
+
+# Datenqualitätsnorm F Class
+clbo:DatenqualitätsnormF a owl:Class;
+    rdfs:label "data quality standard F"@en, "Daten qualitat norm F"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard F" .
+
+clbo:hatReprasentativitat a owl:Property;
+    rdfs:label "has representativeness"@en, "hat reprasentativitat"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormF;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has representativeness" .
+
+clbo:reprasentativitat a owl:Property;
+    rdfs:label "representativeness"@en, "reprasentativitat"@du;
+    rdfs:domain clbo:DatenqualitatsnormF;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "representativeness" .
+
+
+# Datenqualitätsnorm G Class
+clbo:DatenqualitätsnormG a owl:Class;
+    rdfs:label "data quality standard G"@en, "Daten qualitat norm G"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard G" .
+
+
+clbo:hatKonsistenz a owl:Property;
+    rdfs:label "has consistency"@en, "hat konsistenz"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormG;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has consistency" .
+
+clbo:konsistenz a owl:Property;
+    rdfs:label "consistency"@en, "konsistenz"@du;
+    rdfs:domain clbo:DatenqualitatsnormG;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "consistency" .
+
+
+# Datenqualitätsnorm H Class
+clbo:DatenqualitätsnormH a owl:Class;
+    rdfs:label "data quality standard H"@en, "Daten qualitat norm H"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard H" .
+
+clbo:hatVergleichspraszision a owl:Property;
+    rdfs:label "has comparative precision"@en, "hat vergleichs präszision"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormH;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has comparative precision" .
+
+clbo:vergleichspraszision a owl:Property;
+    rdfs:label "comparative precision"@en, "vergleichs präszision"@du;
+    rdfs:domain clbo:DatenqualitatsnormH;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "comparative precision" .
+
+# Datenqualitätsnorm I Class
+clbo:DatenqualitätsnormI a owl:Class;
+    rdfs:label "data quality standard I"@en, "Daten qualitat norm I"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard I" .
+
+clbo:hatDatenquellen a owl:Property;
+    rdfs:label "has data sources"@en, "hat datenquellen"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormI;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has data sources" .
+
+clbo:datenquellen a owl:Property;
+    rdfs:label "data sources"@en, "datenquellen"@du;
+    rdfs:domain clbo:DatenqualitatsnormI;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data sources" .
+
+# Datenqualitätsnorm J Class
+clbo:DatenqualitätsnormJ a owl:Class;
+    rdfs:label "data quality standard J"@en, "Daten qualitat norm J"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "data quality standard J" .
+
+clbo:hatInformationsunsicherheit a owl:Property;
+    rdfs:label "has information insecurity"@en, "hat informationsunsicherheit"@du;
+    rdfs:domain clbo:Datenqualitatsbewertung;
+    rdfs:range clbo:DatenqualitatsnormJ;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "has information insecurity" .
+
+clbo:informationsunsicherheit a owl:Property;
+    rdfs:label "information insecurity"@en, "informationsunsicherheit"@du;
+    rdfs:domain clbo:DatenqualitatsnormJ;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "information insecurity" .
+
+
+clbo:istVerflichtend a owl:Property;
+    rdfs:label "Is mandatory"@en, "Ist Verflichtend"@du;
+    rdfs:domain clbo:DatenqualitatsbewertungA,
+        clbo:DatenqualitätsnormB,
+        clbo:DatenqualitätsnormC,
+        clbo:DatenqualitätsnormD,
+        clbo:DatenqualitätsnormE,
+        clbo:DatenqualitätsnormF,
+        clbo:DatenqualitätsnormG,
+        clbo:DatenqualitätsnormH,
+        clbo:DatenqualitätsnormI,
+        clbo:DatenqualitätsnormJ ;
+    rdfs:range xsd:boolean;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "Is mandatory" .
+
+# THGEmissionen Class
+clbo:THGEmissionen a owl:Class;
+    rdfs:label "THG Emissions"@en, "THG Emissionen"@du;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "" .
+
+clbo:hatEmissionsfaktor a owl:Property;
+    rdfs:label "has Emission Factor"@en, ":hat Emissions faktor"@du;
+    rdfs:domain clbo:Fluss, clbo:Eisenmetall, clbo:Nichteisenmetall, clbo:Kohlenstoffmodifikation, clbo:Polymer ;
+    rdfs:range clbo:THGEmissionen;
+    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:comment "" .
+
+# clbo:bezeichnungStandardFluss a owl:Property;
+#     rdfs:label ""@en, ""@du;
+#     rdfs:domain clbo:THGEmissionen;
+#     rdfs:range ;
+#     rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/>.
+
+# clbo:emissionenWert a owl:Property;
+# rdfs:label "Emissions Value"@en, "Emissionen Wert"@du;
+# rdfs:domain clbo:THGEmissionen;
+# rdfs:range float;
+# rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/>.
+
+# clbo:emissionenEinheit a owl:Property;
+# rdfs:label "Emissions Unit"@en, "Emissionen Einheit"@du;
+# rdfs:domain clbo:THGEmissionen;
+# rdfs:range xsd:string;
+# rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/>.
+
+# clbo:region a owl:Property;
+# rdfs:label "Emissons Region"@en, "Emissionen Region"@du;
+# rdfs:domain clbo:THGEmissionen;
+# rdfs:range xsd:string;
+# rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/>.
+
+# clbo:jahr a owl:Property;
+# rdfs:label "Year"@en, "Jahr"@du;
+# rdfs:domain clbo:THGEmissionen;
+# rdfs:range xsd:string;
+# rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/>.
