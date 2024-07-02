@@ -4,11 +4,5 @@
     "companyName": "company1",
     "fileName": "file1.xlsx",
     "sheetName": "Sheet1"
-  },
-  {
-    "productName": "product1",
-    "companyName": "company1",
-    "fileName": "file1.xlsx",
-    "sheetName": "Sheet1"
   }
 ]

@@ -402,12 +402,30 @@ clbr:company_company1 a clbo:Company ;
     rdfs:label "company1" ;
     clbo:hatProduct clbr:product_company1_product1 .
 
+clbr:material1_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "6.8853397292"^^xsd:float ;
+    clbo:itemName "material1" ;
+    clbo:jahr 2024 ;
+    clbo:region "RoW" .
+
 clbr:material2_company1_product1 a clbo:Elektronik ;
     clbo:emissionenEinheit "kg CO2eq./kg" ;
     clbo:emissionenWert "2.35"^^xsd:float ;
     clbo:itemName "1.1 FCR Stahlcoil (HCT490X, t=0,5mm) " ;
     clbo:jahr 2023 ;
     clbo:region "EU" .
+
+clbr:material2_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "6.9575603261"^^xsd:float ;
+    clbo:itemName "material1" ;
+    clbo:jahr 2024 ;
+    clbo:region "US" .
+
+clbr:material3_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "1.2622380867"^^xsd:float ;
+    clbo:itemName "material2" ;
+    clbo:jahr 2024 ;
+    clbo:region "GLO" .
 
 clbr:material4_company1_product1 a clbo:Energieträger ;
     clbo:emissionenEinheit "kg CO2eq./MJ" ;
@@ -416,6 +434,18 @@ clbr:material4_company1_product1 a clbo:Energieträger ;
     clbo:jahr 2023 ;
     clbo:region "Germany" .
 
+clbr:material4_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "1.6851920537"^^xsd:float ;
+    clbo:itemName "material3" ;
+    clbo:jahr 2024 ;
+    clbo:region "GLO" .
+
+clbr:material5_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "8.3429301545"^^xsd:float ;
+    clbo:itemName "materail4" ;
+    clbo:jahr 2024 ;
+    clbo:region "RoW" .
+
 clbr:material6_company1_product1 a clbo:Metall ;
     clbo:emissionenEinheit "kg CO2eq./m³" ;
     clbo:emissionenWert "0.0353"^^xsd:float ;
@@ -423,12 +453,30 @@ clbr:material6_company1_product1 a clbo:Metall ;
     clbo:jahr 2023 ;
     clbo:region "EU" .
 
+clbr:material6_data1 clbo:emissionenEinheit "MJ" ;
+    clbo:emissionenWert "0.0006555956"^^xsd:float ;
+    clbo:itemName "material5" ;
+    clbo:jahr 2024 ;
+    clbo:region "GLO" .
+
+clbr:material7_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "0.0297171142"^^xsd:float ;
+    clbo:itemName "energy1" ;
+    clbo:jahr 2024 ;
+    clbo:region "GLO" .
+
 clbr:material8_company1_product1 a clbo:Nichtmetall ;
     clbo:emissionenEinheit "kg CO2eq./MJ" ;
     clbo:emissionenWert "0.102"^^xsd:float ;
     clbo:itemName "elektrische Energie" ;
     clbo:jahr 2023 ;
     clbo:region "Germany" .
+
+clbr:material8_data1 clbo:emissionenEinheit "kg" ;
+    clbo:emissionenWert "7.4886891693"^^xsd:float ;
+    clbo:itemName "energy1" ;
+    clbo:jahr 2024 ;
+    clbo:region "RoW" .
 
 clbo:Abfall a owl:Class ;
     rdfs:label "Abfall"@du,
