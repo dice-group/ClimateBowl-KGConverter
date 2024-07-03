@@ -14,7 +14,7 @@
     "react-icons": "^4.11.0"
   },
   "scripts": {
-    "start": "parcel index.html -p 3000"
+    "start": "parcel index.html -p 80"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
