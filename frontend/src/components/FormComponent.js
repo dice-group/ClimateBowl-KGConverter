@@ -21,7 +21,7 @@ const FormComponent = ({ onSubmit, queryValue }) => {
                 name="query"
                 as="textarea"
                 defaultValue={query}
-                rows={12}
+                rows={5}
                 onChange={handleQueryValue}
               />
             </Form.Group>

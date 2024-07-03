@@ -1,14 +1,15 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 function Footer() {
   return (
-    <footer className="justify-content-center">
-      {/* Add your footer content here */}
-      <Container fluid>
-        <p className="justify-content-center">
-          &copy; {new Date().getFullYear()} Climate Bowl
-        </p>
+    <footer className="footer mt-auto py-3 bg-light">
+      <Container>
+        <Row className="justify-content-center">
+          <Col className="text-center">
+            <p>&copy; {new Date().getFullYear()} Climate Bowl</p>
+          </Col>
+        </Row>
       </Container>
     </footer>
   );

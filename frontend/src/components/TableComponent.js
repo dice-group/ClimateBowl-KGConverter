@@ -18,7 +18,7 @@ const TableComponent = ({ data, originalData, updatePCFValue }) => {
   ];
   var difference = [];
   if (originalData.length !== 0 && newData.length !== 0) {
-    console.log(data, originalData);
+    // console.log(data, originalData);
     originalData.map((value, key) => {
       difference[key] = data[key].result - originalData[key].result;
       // data[key].result !== 0
@@ -30,11 +30,11 @@ const TableComponent = ({ data, originalData, updatePCFValue }) => {
   }
   return (
     <>
-      <Container fluid className="mt-5">
+      <Container fluid className="mt-2">
         <hr></hr>
-        <h1>PCF tracking</h1>
+        <h4>PCF tracking</h4>
         <hr></hr>
-        <Table striped bordered hover responsive m-auto>
+        <Table striped bordered hover responsive>
           <thead>
             <tr>
               {headers.map(

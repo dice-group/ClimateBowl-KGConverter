@@ -1,18 +1,17 @@
 import axios from "axios";
+const JENA_API = process.env.JENA_API;
+
 async function sendQuery(query) {
   let response;
   // let username = process.env.USERNAME;
   // let password = process.env.PASSWORD;
   // let basicAuth = "Basic " + btoa(username + ":" + password);
-  response = await axios.post(
-    "http://climatebowl-demo.cs.upb.de:3030/climatebowl/sparql",
-    null,
-    {
-      params: {
-        query: query,
-      },
-    }
-  );
+  console.log(JENA_API);
+  response = await axios.post(JENA_API, null, {
+    params: {
+      query: query,
+    },
+  });
 
   const dataArray = [
     response.data.head["vars"],

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import Chart from "chart.js/auto";
 
@@ -142,10 +142,10 @@ const LebenszyklusPhase = ({ data, originalData }) => {
 
   return (
     <>
-      <h1>LebenszyklusPhase</h1>
+      <h4>LebenszyklusPhase</h4>
       <hr></hr>
       <Col xs lg="6">
-        <Table striped bordered hover responsive m-auto>
+        <Table striped bordered hover responsive>
           <tbody>
             {filteredData?.map((row, index) => (
               <tr key={index}>
@@ -189,7 +189,9 @@ const LebenszyklusPhase = ({ data, originalData }) => {
         </Table>
       </Col>
       <Col xs lg="6">
-        <canvas id="acquisitions" width="800" height="450"></canvas>
+        <Row height="25">
+          <canvas id="acquisitions"></canvas>
+        </Row>
       </Col>
     </>
   );

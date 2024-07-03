@@ -1,17 +1,22 @@
 // LoginPage.js
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-function LoginPage({ onLogin }) {
+function LoginPage({ handleLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  const envUsername = process.env.REACT_APP_USERNAME;
+  const envPassword = process.env.REACT_APP_PASSWORD;
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Call authentication service to authenticate user
-    if (username == "admin" && password == "sunshine1") onLogin();
-    else alert("please enter valid credentials");
+    if (username == envUsername && password == envPassword) {
+      handleLogin();
+      navigate("/pcf-tracking");
+    } else alert("please enter valid credentials");
   };
 
   return (
