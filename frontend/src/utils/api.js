@@ -5,7 +5,7 @@ async function sendQuery(query) {
   // let password = process.env.PASSWORD;
   // let basicAuth = "Basic " + btoa(username + ":" + password);
   response = await axios.post(
-    "http://climatebowl-demo.cs.upb.de:3030/climate_bowl/sparql",
+    "http://climatebowl-demo.cs.upb.de:3030/climatebowl/sparql",
     null,
     {
       params: {

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import LoginPage from "./components/LoginPage";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
