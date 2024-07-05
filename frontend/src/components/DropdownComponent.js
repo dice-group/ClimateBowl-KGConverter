@@ -52,6 +52,11 @@ function DropdownComponent({ row, index, updatePCFValue }) {
       console.error("Error fetching data:", error);
     }
   };
+  const noOptionsMessage = ({ inputValue }) => {
+    return inputValue.length < 3
+      ? "Type at least 3 letters to see options"
+      : "No options";
+  };
   return (
     <>
       <div className="" style={{ minWidth: "300px" }}>
@@ -64,6 +69,7 @@ function DropdownComponent({ row, index, updatePCFValue }) {
           placeholder="Select an option"
           closeMenuOnSelect={true}
           title={selectedOption ? selectedOption.label : ""}
+          noOptionsMessage={noOptionsMessage}
         />
       </div>
     </>

@@ -34,6 +34,10 @@ const TableComponent = ({ data, originalData, updatePCFValue }) => {
         <hr></hr>
         <h4>PCF tracking</h4>
         <hr></hr>
+        <p>
+          *Note: the dropdown has dummy options, start typing "material" and
+          "energy" to get options.
+        </p>
         <Table striped bordered hover responsive>
           <thead>
             <tr>

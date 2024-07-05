@@ -410,10 +410,10 @@ clbr:material1_data1 clbo:emissionenEinheit "kg" ;
 
 clbr:material2_company1_product1 a clbo:Elektronik ;
     clbo:emissionenEinheit "kg CO2eq./kg" ;
-    clbo:emissionenWert "2.35"^^xsd:float ;
-    clbo:itemName "1.1 FCR Stahlcoil (HCT490X, t=0,5mm) " ;
+    clbo:emissionenWert "0.318"^^xsd:float ;
+    clbo:itemName "Entsorgung gebrauchter elektronischer Industriegeräte" ;
     clbo:jahr 2023 ;
-    clbo:region "EU" .
+    clbo:region "Global" .
 
 clbr:material2_data1 clbo:emissionenEinheit "kg" ;
     clbo:emissionenWert "6.9575603261"^^xsd:float ;
@@ -428,8 +428,8 @@ clbr:material3_data1 clbo:emissionenEinheit "kg" ;
     clbo:region "GLO" .
 
 clbr:material4_company1_product1 a clbo:Energieträger ;
-    clbo:emissionenEinheit "kg CO2eq./MJ" ;
-    clbo:emissionenWert "0.102"^^xsd:float ;
+    clbo:emissionenEinheit "kg CO2eq./kWh" ;
+    clbo:emissionenWert "0.47"^^xsd:float ;
     clbo:itemName "elektrische Energie" ;
     clbo:jahr 2023 ;
     clbo:region "Germany" .
@@ -447,11 +447,11 @@ clbr:material5_data1 clbo:emissionenEinheit "kg" ;
     clbo:region "RoW" .
 
 clbr:material6_company1_product1 a clbo:Metall ;
-    clbo:emissionenEinheit "kg CO2eq./m³" ;
-    clbo:emissionenWert "0.0353"^^xsd:float ;
-    clbo:itemName "Druckluft" ;
+    clbo:emissionenEinheit "kg CO2eq./kg" ;
+    clbo:emissionenWert "5.78"^^xsd:float ;
+    clbo:itemName "KB Fuß BG, Rohteil" ;
     clbo:jahr 2023 ;
-    clbo:region "EU" .
+    clbo:region "Germany" .
 
 clbr:material6_data1 clbo:emissionenEinheit "MJ" ;
     clbo:emissionenWert "0.0006555956"^^xsd:float ;
@@ -466,9 +466,9 @@ clbr:material7_data1 clbo:emissionenEinheit "kg" ;
     clbo:region "GLO" .
 
 clbr:material8_company1_product1 a clbo:Nichtmetall ;
-    clbo:emissionenEinheit "kg CO2eq./MJ" ;
-    clbo:emissionenWert "0.102"^^xsd:float ;
-    clbo:itemName "elektrische Energie" ;
+    clbo:emissionenEinheit "kg CO2eq./kg" ;
+    clbo:emissionenWert "2.57"^^xsd:float ;
+    clbo:itemName "KB Fuß BG, Umspritzung" ;
     clbo:jahr 2023 ;
     clbo:region "Germany" .
 
@@ -593,107 +593,106 @@ clbo:Zwischenprodukt a owl:Class ;
 
 clbr:Prozess_company1_product1_1 a clbo:Prozess ;
     clbo:hatInput clbr:company1_product1_InputProzess_0Fluzz1 ;
-    clbo:prozessmodul "Blechzuschnitt (Stanzen) 1" ;
-    clbo:zuordnungTeilenummer 1 .
+    clbo:prozessmodul "End-of-Life" ;
+    clbo:zuordnungTeilenummer "" .
 
 clbr:Prozess_company1_product1_2 a clbo:Prozess ;
     clbo:hatInput clbr:company1_product1_InputProzess_1Fluzz2 ;
-    clbo:prozessmodul "Blechzuschnitt (Stanzen) 1" ;
-    clbo:zuordnungTeilenummer 1 .
+    clbo:prozessmodul "Nutzungsphase" ;
+    clbo:zuordnungTeilenummer "" .
 
 clbr:Prozess_company1_product1_3 a clbo:Prozess ;
     clbo:hatInput clbr:company1_product1_InputProzess_2Fluzz3 ;
-    clbo:prozessmodul "Blechzuschnitt (Stanzen) 1" ;
-    clbo:zuordnungTeilenummer 1 .
+    clbo:prozessmodul "SFM Vormontage" ;
+    clbo:zuordnungTeilenummer "" .
 
 clbr:Prozess_company1_product1_4 a clbo:Prozess ;
     clbo:hatInput clbr:company1_product1_InputProzess_3Fluzz4 ;
-    clbo:prozessmodul "Oberflächenvorbehandlung (Laserstrukturieren)" ;
-    clbo:zuordnungTeilenummer 1 .
+    clbo:prozessmodul "SFM Vormontage" ;
+    clbo:zuordnungTeilenummer "" .
 
 clbr:THGEmissionen1_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "GaBi EU: Steel finished cold rolled coil (Worldsteel)" ;
+    clbo:datenquelle "dummy_data" ;
     clbo:einheit "kg CO2eq./kg" ;
-    clbo:emissionsfaktor "2.35"^^xsd:float ;
-    clbo:item "FCR steel coil" ;
+    clbo:emissionsfaktor "0.318"^^xsd:float ;
+    clbo:item "Treatment of used industrial electronic device, mechanical treatment" ;
     clbo:jahr 2023 ;
-    clbo:land "EU" .
+    clbo:land "Global" .
 
 clbr:THGEmissionen2_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "GaBi EU-28: Electricity Grid Mix" ;
-    clbo:einheit "kg CO2eq./MJ" ;
-    clbo:emissionsfaktor "0.102"^^xsd:float ;
+    clbo:datenquelle "dummy_data" ;
+    clbo:einheit "kg CO2eq./kWh" ;
+    clbo:emissionsfaktor "0.47"^^xsd:float ;
     clbo:item "Electricity grid mix" ;
     clbo:jahr 2023 ;
     clbo:land "Germany" .
 
 clbr:THGEmissionen3_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "GaBi EU-28: Compressed air, 7 bar, high efficiency" ;
-    clbo:einheit "kg CO2eq./m³" ;
-    clbo:emissionsfaktor "0.0353"^^xsd:float ;
-    clbo:item "Compressed air, 7 bar" ;
+    clbo:datenquelle "dummy_data" ;
+    clbo:einheit "kg CO2eq./kg" ;
+    clbo:emissionsfaktor "5.78"^^xsd:float ;
+    clbo:item "Steel screw" ;
     clbo:jahr 2023 ;
-    clbo:land "EU" .
+    clbo:land "Germany" .
 
 clbr:THGEmissionen4_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "GaBi EU-28: Electricity Grid Mix" ;
-    clbo:einheit "kg CO2eq./MJ" ;
-    clbo:emissionsfaktor "0.102"^^xsd:float ;
-    clbo:item "Electricity grid mix" ;
+    clbo:datenquelle "dummy_data" ;
+    clbo:einheit "kg CO2eq./kg" ;
+    clbo:emissionsfaktor "2.57"^^xsd:float ;
+    clbo:item "PVC" ;
     clbo:jahr 2023 ;
     clbo:land "Germany" .
 
 clbr:company1_product1_Energie3 a clbo:Energie ;
     rdfs:label "elektrische Energie" .
 
-clbr:company1_product1_Energie5 a clbo:Energie ;
-    rdfs:label "Druckluft" .
-
-clbr:company1_product1_Energie7 a clbo:Energie ;
-    rdfs:label "elektrische Energie" .
+clbr:company1_product1_Entsorgung1 a clbo:Entsorgung ;
+    rdfs:label "Entsorgung gebrauchter elektronischer Industriegeräte" .
 
 clbr:company1_product1_InputProzess_0Fluzz1 a clbo:Fluss ;
     clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
     clbo:hatEmissionsfaktor clbr:THGEmissionen1_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Material1 ;
-    clbo:lebenszyklusphase "Produktion" ;
+    clbo:hatKategorie clbr:company1_product1_Entsorgung1 ;
+    clbo:lebenszyklusphase "End-of-Life" ;
     clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "1.50069145"^^xsd:float ;
+    clbo:resultierendeMengejeJeReferenzfluss "15.66"^^xsd:float ;
+    clbo:scope 3.12e+00 ;
+    clbo:zuordnungWertschöpfungskette "Gate-to-Grave" .
+
+clbr:company1_product1_InputProzess_1Fluzz2 a clbo:Fluss ;
+    clbo:einheitResultierendeMengejeJeReferenzfluss "kWh" ;
+    clbo:hatEmissionsfaktor clbr:THGEmissionen2_company1_product1 ;
+    clbo:hatKategorie clbr:company1_product1_Energie3 ;
+    clbo:lebenszyklusphase "Nutzung" ;
+    clbo:relevantPCF true ;
+    clbo:scope 3.11e+00 ;
+    clbo:zuordnungWertschöpfungskette "Gate-to-Grave" .
+
+clbr:company1_product1_InputProzess_2Fluzz3 a clbo:Fluss ;
+    clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
+    clbo:hatEmissionsfaktor clbr:THGEmissionen3_company1_product1 ;
+    clbo:hatKategorie clbr:company1_product1_Material5 ;
+    clbo:lebenszyklusphase "Vorkette" ;
+    clbo:relevantPCF true ;
+    clbo:resultierendeMengejeJeReferenzfluss "0.04"^^xsd:float ;
     clbo:scope 3.1e+00 ;
     clbo:zuordnungWertschöpfungskette "Cradle-to-Gate" .
 
-clbr:company1_product1_InputProzess_1Fluzz2 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "MJ" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen2_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Energie3 ;
-    clbo:lebenszyklusphase "Produktion" ;
-    clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "0.23479749999999996"^^xsd:float ;
-    clbo:scope 2e+00 ;
-    clbo:zuordnungWertschöpfungskette "Gate-to-Gate" .
-
-clbr:company1_product1_InputProzess_2Fluzz3 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "m³" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen3_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Energie5 ;
-    clbo:lebenszyklusphase "Produktion" ;
-    clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "0.10156669"^^xsd:float ;
-    clbo:scope 2e+00 ;
-    clbo:zuordnungWertschöpfungskette "Gate-to-Gate" .
-
 clbr:company1_product1_InputProzess_3Fluzz4 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "MJ" ;
+    clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
     clbo:hatEmissionsfaktor clbr:THGEmissionen4_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Energie7 ;
-    clbo:lebenszyklusphase "Produktion" ;
+    clbo:hatKategorie clbr:company1_product1_Material7 ;
+    clbo:lebenszyklusphase "Vorkette" ;
     clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "2.0919751200000003"^^xsd:float ;
-    clbo:scope 2e+00 ;
-    clbo:zuordnungWertschöpfungskette "Gate-to-Gate" .
+    clbo:resultierendeMengejeJeReferenzfluss "0.01"^^xsd:float ;
+    clbo:scope 3.1e+00 ;
+    clbo:zuordnungWertschöpfungskette "Cradle-to-Gate" .
 
-clbr:company1_product1_Material1 a clbo:Material ;
-    rdfs:label "1.1 FCR Stahlcoil (HCT490X, t=0,5mm) " .
+clbr:company1_product1_Material5 a clbo:Material ;
+    rdfs:label "KB Fuß BG, Rohteil" .
+
+clbr:company1_product1_Material7 a clbo:Material ;
+    rdfs:label "KB Fuß BG, Umspritzung" .
 
 clbr:product_company1_product1 a clbo:Product ;
     rdfs:label "product1" ;
@@ -701,6 +700,12 @@ clbr:product_company1_product1 a clbo:Product ;
         clbr:Prozess_company1_product1_2,
         clbr:Prozess_company1_product1_3,
         clbr:Prozess_company1_product1_4 .
+
+clbo:Energie a owl:Class ;
+    rdfs:label "Energie"@du,
+        "Energy"@en ;
+    rdfs:comment "Energy" ;
+    rdfs:isDefinedBy clbo: .
 
 clbo:NichtMetall a owl:Class ;
     rdfs:label "Nicht Metall"@du,
@@ -735,12 +740,6 @@ clbo:Dokumentation a owl:Class ;
     rdfs:label "Dokumentation"@du,
         "Documentation"@en ;
     rdfs:comment "Documentation" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:Energie a owl:Class ;
-    rdfs:label "Energie"@du,
-        "Energy"@en ;
-    rdfs:comment "Energy" ;
     rdfs:isDefinedBy clbo: .
 
 clbo:Material a owl:Class ;
