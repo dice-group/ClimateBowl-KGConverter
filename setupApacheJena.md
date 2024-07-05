@@ -53,7 +53,7 @@ mkdir -p apache-jena-fuseki-4.7.0/databases/climatebowl/
 Load your RDF data into the triple store. Replace `Converter/generatedRDF/knowledgeGraph.ttl` with the path to your RDF file:
 
 ```bash
-apache-jena-4.7.0/bin/tdb2.tdbloader --loader=parallel --loc apache-jena-fuseki-4.7.0/databases/climatebowl/ Converter/generatedRDF/knowledgeGraph.ttl
+apache-jena-4.7.0/bin/tdb2.tdbloader --loader=parallel --loc apache-jena-fuseki-4.7.0/databases/climatebowl/ ../Converter/generatedRDF/knowledgeGraph.ttl
 ```
 
 ```
@@ -74,6 +74,11 @@ Start the Fuseki server to serve your triple store:
 ```bash
 cd apache-jena-fuseki-4.7.0
 java -Xmx4G -jar fuseki-server.jar --tdb2 --loc=databases/climatebowl /climatebowl
+```
+
+```bash
+// for running in background
+nohup java -Xmx4G -jar fuseki-server.jar --tdb2 --loc=databases/climatebowl /climatebowl > fuseki.log &
 ```
 
 ## Notes
