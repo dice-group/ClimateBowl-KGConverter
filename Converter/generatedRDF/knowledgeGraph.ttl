@@ -5,189 +5,139 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-clbo:Datenqualitätsbewertung a owl:Class ;
-    rdfs:label "Daten qualitat sbewertung"@du,
-        "data quality assessment"@en ;
-    rdfs:comment "data quality assessment" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:DatenqualitätsbewertungA a owl:Class ;
-    rdfs:label "Daten qualitat sbewertung A"@du,
-        "data quality assessment A"@en ;
-    rdfs:comment "data quality assessment A" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:ZuordnungTeilenummer a owl:Property ;
+clbo:allocationPartNumber a owl:Property ;
     rdfs:label "Zuordnung Teile nummer"@du,
         "Allocation Part Number"@en ;
     rdfs:comment "Allocated Part Number for the process" ;
-    rdfs:domain clbo:Prozess ;
+    rdfs:domain clbo:Process ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:allokationsverfahren a owl:Property ;
+clbo:allocationProcedure a owl:Property ;
     rdfs:label "Allokationsverfahren"@du,
         "Allocation procedure"@en ;
     rdfs:comment "Allocation procedure" ;
-    rdfs:domain clbo:Allokation ;
+    rdfs:domain clbo:Allocation ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:datenerhebungsverfahren a owl:Property ;
+clbo:allocationValueChain a owl:Property ;
+    rdfs:label "Zuordnung Wertschöpfungskette"@du,
+        "Allocation Value Chain"@en ;
+    rdfs:comment "Assignment Value chain. There can be three types; Cradle to Gate, Gate-to-Gate, and Gate-to-Grave." ;
+    rdfs:domain clbo:Flow ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range xsd:string .
+
+clbo:dataCollectionProcedure a owl:Property ;
     rdfs:label "datenerhebungsverfahren"@du,
         "data collection procedures"@en ;
     rdfs:comment "data collection procedure" ;
-    rdfs:domain clbo:Dokumentation ;
+    rdfs:domain clbo:Documentation ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:datenquellen a owl:Property ;
-    rdfs:label "datenquellen"@du,
-        "data sources"@en ;
-    rdfs:comment "data sources" ;
-    rdfs:domain clbo:DatenqualitatsnormI ;
+clbo:datasource a owl:Property ;
+    rdfs:label "datenquelle"@du,
+        "datasource"@en ;
+    rdfs:comment "datasource" ;
+    rdfs:domain clbo:THGEmissions ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:einheit a owl:Property ;
-    rdfs:label "einheit"@du,
-        "unit"@en ;
-    rdfs:comment "unit" ;
-    rdfs:domain clbo:Referenzfluss ;
+clbo:emissionfactor a owl:Property ;
+    rdfs:label "emissionen factor"@du,
+        "emission factor"@en ;
+    rdfs:comment "emission factor" ;
+    rdfs:domain clbo:THGEmissions ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:float .
 
-clbo:einheitNormierteMenge a owl:Property ;
-    rdfs:label "Einheit normierte  Menge des Flusses"@du,
-        "normalized amount of flow Unit"@en ;
-    rdfs:comment "Unit for normalized amount of flow" ;
-    rdfs:domain clbo:Fluss ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:einheitResultierendeMengejeJeReferenzfluss a owl:Property ;
-    rdfs:label "Einheit resultierende Menge je Referenzfluss"@du,
-        "resulting quantity per reference flow unit"@en ;
-    rdfs:comment "Unit for resulting quantity per reference flow" ;
-    rdfs:domain clbo:Fluss ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:erfülltDatenqualitätAnforderungen a owl:Property ;
+clbo:fulfillsDataQualityRequirements a owl:Property ;
     rdfs:label "Erfüllt Datenqualität Anforderungen"@du,
-        "Fulfillment of data quality requirements"@en ;
+        "Fulfills data quality requirements"@en ;
     rdfs:comment "Fulfillment of data quality requirements" ;
-    rdfs:domain clbo:Dokumentation ;
+    rdfs:domain clbo:Documentation ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:boolean .
 
-clbo:genauigkeit a owl:Property ;
-    rdfs:label "genauigkeit"@du,
-        "accuracy"@en ;
-    rdfs:comment "accuracy" ;
-    rdfs:domain clbo:DatenqualitatsnormD ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:hatAllokation a owl:Property ;
+clbo:hasAllocation a owl:Property ;
     rdfs:label "Hat Allokation"@du,
         "Has Allocation"@en ;
     rdfs:comment "Has Allocation" ;
-    rdfs:domain clbo:Dokumentation ;
+    rdfs:domain clbo:Documentation ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Allokation .
+    rdfs:range clbo:Allocation .
 
-clbo:hatDatenqualitatsbewertung a owl:Property ;
-    rdfs:label "Hat Daten qualitat sbewertung"@du,
-        "Has data quality assessment"@en ;
-    rdfs:comment "Has data quality assessment" ;
-    rdfs:domain clbo:Prozess ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Datenqualitatsbewertung .
-
-clbo:hatDatenquellen a owl:Property ;
-    rdfs:label "hat datenquellen"@du,
-        "has data sources"@en ;
-    rdfs:comment "has data sources" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormI .
-
-clbo:hatDokumentation a owl:Property ;
-    rdfs:label "Hat Dokumentation"@du,
-        "Has Documentation"@en ;
-    rdfs:comment "Has Documentation" ;
-    rdfs:domain clbo:Prozess ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Dokumentation .
-
-clbo:hatEmissionsfaktor a owl:Property ;
-    rdfs:label ":hat Emissions faktor"@du,
-        "has Emission Factor"@en ;
-    rdfs:comment "" ;
-    rdfs:domain clbo:Eisenmetall,
-        clbo:Fluss,
-        clbo:Kohlenstoffmodifikation,
-        clbo:Nichteisenmetall,
-        clbo:Polymer ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:THGEmissionen .
-
-clbo:hatGenauigkeit a owl:Property ;
-    rdfs:label "hat genauigkeit"@du,
-        "has technological detection range"@en ;
-    rdfs:comment "has technological detection range" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormD .
-
-clbo:hatInformationsunsicherheit a owl:Property ;
-    rdfs:label "hat informationsunsicherheit"@du,
-        "has information insecurity"@en ;
-    rdfs:comment "has information insecurity" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormJ .
-
-clbo:hatInput a owl:Property ;
-    rdfs:label "hat Input"@du,
-        "has Input"@en ;
-    rdfs:comment "A Process has input Flow" ;
-    rdfs:domain clbo:Prozess ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Fluss .
-
-clbo:hatKategorie a owl:Property ;
+clbo:hasCategory a owl:Property ;
     rdfs:label "Hat Kategorie"@du,
         "Has Category"@en ;
     rdfs:comment "Has Category" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Abfall,
-        clbo:DirekteEmissionen,
-        clbo:Endprodukt,
-        clbo:Energie,
+    rdfs:range clbo:Energie,
         clbo:Material,
-        clbo:MaterialEnergietrager,
-        clbo:Zwischenprodukt .
+        clbo:Transport .
 
-clbo:hatKonsistenz a owl:Property ;
-    rdfs:label "hat konsistenz"@du,
-        "has consistency"@en ;
-    rdfs:comment "has consistency" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
+clbo:hasDataQualityAssessment a owl:Property ;
+    rdfs:label "Hat Daten qualitat sbewertung"@du,
+        "Has data quality assessment"@en ;
+    rdfs:comment "Has data quality assessment" ;
+    rdfs:domain clbo:Process ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormG .
+    rdfs:range clbo:DataQualityAssessment .
 
-clbo:hatOutput a owl:Property ;
+clbo:hasDataValidation a owl:Property ;
+    rdfs:label "Hat Datenvalidierung"@du,
+        "Has Data Validation"@en ;
+    rdfs:comment "Data Validation" ;
+    rdfs:domain clbo:Documentation ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range clbo:DataValidation .
+
+clbo:hasDocumentation a owl:Property ;
+    rdfs:label "Hat Dokumentation"@du,
+        "Has Documentation"@en ;
+    rdfs:comment "Has Documentation" ;
+    rdfs:domain clbo:Process ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range clbo:Documentation .
+
+clbo:hasEmissionsfaktor a owl:Property ;
+    rdfs:label ":hat Emissions faktor"@du,
+        "has Emission Factor"@en ;
+    rdfs:comment "" ;
+    rdfs:domain clbo:Energie,
+        clbo:Material,
+        clbo:Transport ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range clbo:THGEmissions .
+
+clbo:hasInput a owl:Property ;
+    rdfs:label "hat Input"@du,
+        "has Input"@en ;
+    rdfs:comment "A Process has input Flow" ;
+    rdfs:domain clbo:Process ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range clbo:Flow .
+
+clbo:hasOutput a owl:Property ;
     rdfs:label "hat Output"@du,
         "has Output"@en ;
     rdfs:comment "A Process has Output Flow" ;
-    rdfs:domain clbo:Prozess ;
+    rdfs:domain clbo:Process ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Fluss .
+    rdfs:range clbo:Flow .
 
-clbo:hatProduct a owl:Property ;
+clbo:hasProcess a owl:Property ;
+    rdfs:label "hat Prozess"@du,
+        "has Process"@en ;
+    rdfs:comment "A Product has Process" ;
+    rdfs:domain clbo:Product ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range clbo:Process .
+
+clbo:hasProduct a owl:Property ;
     rdfs:label "hat Product"@du,
         "has product"@en ;
     rdfs:comment "A company has Product" ;
@@ -195,133 +145,75 @@ clbo:hatProduct a owl:Property ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range clbo:Product .
 
-clbo:hatProzess a owl:Property ;
-    rdfs:label "hat Prozess"@du,
-        "has Process"@en ;
-    rdfs:comment "A Product has Process" ;
-    rdfs:domain clbo:Product ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Prozess .
-
-clbo:hatReferencezfluss a owl:Property ;
+clbo:hasReferenceFlow a owl:Property ;
     rdfs:label "Hat Referencez Fluss"@du,
         "Has Reference Flow"@en ;
     rdfs:comment "Has Reference Flow" ;
-    rdfs:domain clbo:Prozess ;
+    rdfs:domain clbo:Process ;
     rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:Referenzfluss .
+    rdfs:range clbo:ReferenceFlow .
 
-clbo:hatReprasentativitat a owl:Property ;
-    rdfs:label "hat reprasentativitat"@du,
-        "has representativeness"@en ;
-    rdfs:comment "has representativeness" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormF .
-
-clbo:hatTechnologischerErfassungsbereich a owl:Property ;
-    rdfs:label "hat Technologischer Erfassungsbereich  "@du,
-        "has technological detection range"@en ;
-    rdfs:comment "has technological detection range" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormC .
-
-clbo:hatVergleichspraszision a owl:Property ;
-    rdfs:label "hat vergleichs präszision"@du,
-        "has comparative precision"@en ;
-    rdfs:comment "has comparative precision" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormH .
-
-clbo:hatVollstandigkeit a owl:Property ;
-    rdfs:label "hat Vollstandigkeit"@du,
-        "has Completeness"@en ;
-    rdfs:comment "has Completeness" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsnormE .
-
-clbo:hatZeitbezogenerErfassungsbereich a owl:Property ;
-    rdfs:label "hat Zeit bezogener Erfassungsbereich"@du,
-        "has time-related coverage"@en ;
-    rdfs:comment "has time-related coverag" ;
-    rdfs:domain clbo:Datenqualitatsbewertung ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range clbo:DatenqualitatsbewertungA,
-        clbo:DatenqualitatsnormB .
-
-clbo:informationsunsicherheit a owl:Property ;
-    rdfs:label "informationsunsicherheit"@du,
-        "information insecurity"@en ;
-    rdfs:comment "information insecurity" ;
-    rdfs:domain clbo:DatenqualitatsnormJ ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:istNotwending a owl:Property ;
+clbo:isNecessary a owl:Property ;
     rdfs:label "ist Notwending"@du,
         "Is necessary"@en ;
     rdfs:comment "Is necessary" ;
-    rdfs:domain clbo:Allokation ;
+    rdfs:domain clbo:Allocation ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:boolean .
 
-clbo:istVerflichtend a owl:Property ;
-    rdfs:label "Ist Verflichtend"@du,
-        "Is mandatory"@en ;
-    rdfs:comment "Is mandatory" ;
-    rdfs:domain clbo:DatenqualitatsbewertungA,
-        clbo:DatenqualitätsnormB,
-        clbo:DatenqualitätsnormC,
-        clbo:DatenqualitätsnormD,
-        clbo:DatenqualitätsnormE,
-        clbo:DatenqualitätsnormF,
-        clbo:DatenqualitätsnormG,
-        clbo:DatenqualitätsnormH,
-        clbo:DatenqualitätsnormI,
-        clbo:DatenqualitätsnormJ ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:boolean .
-
-clbo:konsistenz a owl:Property ;
-    rdfs:label "konsistenz"@du,
-        "consistency"@en ;
-    rdfs:comment "consistency" ;
-    rdfs:domain clbo:DatenqualitatsnormG ;
+clbo:item a owl:Property ;
+    rdfs:label "item"@du,
+        "item"@en ;
+    rdfs:comment "item name" ;
+    rdfs:domain clbo:THGEmissions ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:lebenszyklusphase a owl:Property ;
+clbo:land a owl:Property ;
+    rdfs:label "land"@du,
+        "land"@en ;
+    rdfs:comment "land" ;
+    rdfs:domain clbo:THGEmissions ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range xsd:string .
+
+clbo:lifecyclePhase a owl:Property ;
     rdfs:label "leben szyklus phase"@du,
         "Life Cycle Phase"@en ;
     rdfs:comment "Life Cycle Phase" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:normierteMenge a owl:Property ;
+clbo:normalizedAmmount a owl:Property ;
     rdfs:label "normierte Menge des Flusses"@du,
-        "normalized amount of flow"@en ;
+        "normalized amount of flows"@en ;
     rdfs:comment "normalized amount of flow" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:float .
 
-clbo:prozessmodul a owl:Property ;
-    rdfs:label "Prozess Modul"@du,
-        "Process Module"@en ;
-    rdfs:comment " Name of the process " ;
-    rdfs:domain clbo:Prozess ;
+clbo:procedure a owl:Property ;
+    rdfs:label "verfahren"@du,
+        "procedure"@en ;
+    rdfs:comment "procedure" ;
+    rdfs:domain clbo:DataValidation ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:referenzfluss a owl:Property ;
+clbo:processmodule a owl:Property ;
+    rdfs:label "Prozess Modul"@du,
+        "Process Module"@en ;
+    rdfs:comment " Name of the process " ;
+    rdfs:domain clbo:Process ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range xsd:string .
+
+clbo:referenceflow a owl:Property ;
     rdfs:label "Referencez Fluss"@du,
         "Reference Flow"@en ;
     rdfs:comment "Reference Flow" ;
-    rdfs:domain clbo:Referenzfluss ;
+    rdfs:domain clbo:ReferenceFlow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:float .
 
@@ -329,377 +221,269 @@ clbo:relevantPCF a owl:Property ;
     rdfs:label "Relevant für PCF"@du,
         "Relefent for PCF"@en ;
     rdfs:comment "Flow is relevent for Product Carbon Footprint(PCF)" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:boolean .
 
-clbo:reprasentativitat a owl:Property ;
-    rdfs:label "reprasentativitat"@du,
-        "representativeness"@en ;
-    rdfs:comment "representativeness" ;
-    rdfs:domain clbo:DatenqualitatsnormF ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:resultierendeMengejeJeReferenzfluss a owl:Property ;
+clbo:resulingQuantityPerReferenceFlow a owl:Property ;
     rdfs:label "resultierende Menge je Referenzfluss"@du,
         "resulting quantity per reference flow"@en ;
     rdfs:comment "" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:float .
+
+clbo:resulingQuantityPerReferenceFlowUnit a owl:Property ;
+    rdfs:label "Einheit resultierende Menge je Referenzfluss"@du,
+        "resulting quantity per reference flow unit"@en ;
+    rdfs:comment "Unit for resulting quantity per reference flow" ;
+    rdfs:domain clbo:Flow ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range xsd:string .
+
+clbo:result a owl:Property ;
+    rdfs:label "ergebnis"@du,
+        "result"@en ;
+    rdfs:comment "result" ;
+    rdfs:domain clbo:DataValidation ;
+    rdfs:isDefinedBy clbo: ;
+    rdfs:range xsd:string .
 
 clbo:scope a owl:Property ;
     rdfs:label "Scope"@du,
         "Scope"@en ;
     rdfs:comment "Scope" ;
-    rdfs:domain clbo:Fluss ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:technologischerErfassungsbereich a owl:Property ;
-    rdfs:label "Zeit bezogener Erfassungsbereich"@du,
-        "time-related coverage"@en ;
-    rdfs:comment "time-related coverage" ;
-    rdfs:domain clbo:DatenqualitatsnormC ;
+clbo:unit a owl:Property ;
+    rdfs:label "einheit"@du,
+        "unit"@du,
+        "unit"@en ;
+    rdfs:comment "unit",
+        "unit for reference flow" ;
+    rdfs:domain clbo:ReferenceFlow,
+        clbo:THGEmissions ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:vergleichspraszision a owl:Property ;
-    rdfs:label "vergleichs präszision"@du,
-        "comparative precision"@en ;
-    rdfs:comment "comparative precision" ;
-    rdfs:domain clbo:DatenqualitatsnormH ;
+clbo:unitNormalizedAmmount a owl:Property ;
+    rdfs:label "Einheit normierte  Menge des Flusses"@du,
+        "normalized amount of flow Unit"@en ;
+    rdfs:comment "Unit for normalized amount of flow" ;
+    rdfs:domain clbo:Flow ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbo:vollstandigkeit a owl:Property ;
-    rdfs:label "Vollstandigkeit"@du,
-        "Completeness"@en ;
-    rdfs:comment "Completeness" ;
-    rdfs:domain clbo:DatenqualitatsnormE ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:zeitbezogenerErfassungsbereich a owl:Property ;
-    rdfs:label "Zeit bezogener Erfassungsbereich"@du,
-        "time-related coverage"@en ;
-    rdfs:comment "time-related coverage" ;
-    rdfs:domain clbo:DatenqualitatsbewertungA,
-        clbo:DatenqualitatsnormB ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:range xsd:string .
-
-clbo:zuordnungWertschöpfungskette a owl:Property ;
-    rdfs:label "Zuordnung Wertschöpfungskette"@du,
-        "Assignment Value Chain"@en ;
-    rdfs:comment "Assignment Value chain. There can be there types; Cradle to Gate, Gate-to-Gate, and Gate-to-Grave." ;
-    rdfs:domain clbo:Fluss ;
+clbo:year a owl:Property ;
+    rdfs:label "jahr"@du,
+        "year"@en ;
+    rdfs:comment "year" ;
+    rdfs:domain clbo:THGEmissions ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
 clbr:company_company1 a clbo:Company ;
     rdfs:label "company1" ;
-    clbo:hatProduct clbr:product_company1_product1 .
+    clbo:hasProduct clbr:product_company1_product1 .
 
-clbr:material1_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "6.8853397292"^^xsd:float ;
+clbr:material1_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "6.8853397292"^^xsd:float ;
     clbo:itemName "material1" ;
-    clbo:jahr 2024 ;
-    clbo:region "RoW" .
+    clbo:region "RoW" ;
+    clbo:year 2024 .
 
-clbr:material2_company1_product1 a clbo:Elektronik ;
-    clbo:emissionenEinheit "kg CO2eq./kg" ;
-    clbo:emissionenWert "0.318"^^xsd:float ;
-    clbo:itemName "Entsorgung gebrauchter elektronischer Industriegeräte" ;
-    clbo:jahr 2023 ;
-    clbo:region "Global" .
+clbr:material2_company1_product1 a clbo:Electronics ;
+    clbo:emissionsValue "0.318"^^xsd:float,
+        "kg CO2eq./kg" ;
+    clbo:itemName "Disposal of used electronic industrial devices" ;
+    clbo:region "Global" ;
+    clbo:year 2023 .
 
-clbr:material2_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "6.9575603261"^^xsd:float ;
+clbr:material2_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "6.9575603261"^^xsd:float ;
     clbo:itemName "material1" ;
-    clbo:jahr 2024 ;
-    clbo:region "US" .
+    clbo:region "US" ;
+    clbo:year 2024 .
 
-clbr:material3_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "1.2622380867"^^xsd:float ;
+clbr:material3_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "1.2622380867"^^xsd:float ;
     clbo:itemName "material2" ;
-    clbo:jahr 2024 ;
-    clbo:region "GLO" .
+    clbo:region "GLO" ;
+    clbo:year 2024 .
 
-clbr:material4_company1_product1 a clbo:Energieträger ;
-    clbo:emissionenEinheit "kg CO2eq./kWh" ;
-    clbo:emissionenWert "0.47"^^xsd:float ;
-    clbo:itemName "elektrische Energie" ;
-    clbo:jahr 2023 ;
-    clbo:region "Germany" .
+clbr:material4_company1_product1 a clbo:Energy_source ;
+    clbo:emissionsValue "0.47"^^xsd:float,
+        "kg CO2eq./kWh" ;
+    clbo:itemName "Electrical energy" ;
+    clbo:region "Germany" ;
+    clbo:year 2023 .
 
-clbr:material4_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "1.6851920537"^^xsd:float ;
+clbr:material4_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "1.6851920537"^^xsd:float ;
     clbo:itemName "material3" ;
-    clbo:jahr 2024 ;
-    clbo:region "GLO" .
+    clbo:region "GLO" ;
+    clbo:year 2024 .
 
-clbr:material5_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "8.3429301545"^^xsd:float ;
+clbr:material5_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "8.3429301545"^^xsd:float ;
     clbo:itemName "materail4" ;
-    clbo:jahr 2024 ;
-    clbo:region "RoW" .
+    clbo:region "RoW" ;
+    clbo:year 2024 .
 
-clbr:material6_company1_product1 a clbo:Metall ;
-    clbo:emissionenEinheit "kg CO2eq./kg" ;
-    clbo:emissionenWert "5.78"^^xsd:float ;
-    clbo:itemName "KB Fuß BG, Rohteil" ;
-    clbo:jahr 2023 ;
-    clbo:region "Germany" .
+clbr:material6_company1_product1 a clbo:Metal ;
+    clbo:emissionsValue "5.78"^^xsd:float,
+        "kg CO2eq./kg" ;
+    clbo:itemName "KB foot BG, blank" ;
+    clbo:region "Germany" ;
+    clbo:year 2023 .
 
-clbr:material6_data1 clbo:emissionenEinheit "MJ" ;
-    clbo:emissionenWert "0.0006555956"^^xsd:float ;
+clbr:material6_data1 clbo:emissionsUnit "MJ" ;
+    clbo:emissionsValue "0.0006555956"^^xsd:float ;
     clbo:itemName "material5" ;
-    clbo:jahr 2024 ;
-    clbo:region "GLO" .
+    clbo:region "GLO" ;
+    clbo:year 2024 .
 
-clbr:material7_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "0.0297171142"^^xsd:float ;
+clbr:material7_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "0.0297171142"^^xsd:float ;
     clbo:itemName "energy1" ;
-    clbo:jahr 2024 ;
-    clbo:region "GLO" .
+    clbo:region "GLO" ;
+    clbo:year 2024 .
 
-clbr:material8_company1_product1 a clbo:Nichtmetall ;
-    clbo:emissionenEinheit "kg CO2eq./kg" ;
-    clbo:emissionenWert "2.57"^^xsd:float ;
-    clbo:itemName "KB Fuß BG, Umspritzung" ;
-    clbo:jahr 2023 ;
-    clbo:region "Germany" .
+clbr:material8_company1_product1 a clbo:Non-metal ;
+    clbo:emissionsValue "2.57"^^xsd:float,
+        "kg CO2eq./kg" ;
+    clbo:itemName "KB foot BG, overmolding" ;
+    clbo:region "Germany" ;
+    clbo:year 2023 .
 
-clbr:material8_data1 clbo:emissionenEinheit "kg" ;
-    clbo:emissionenWert "7.4886891693"^^xsd:float ;
+clbr:material8_data1 clbo:emissionsUnit "kg" ;
+    clbo:emissionsValue "7.4886891693"^^xsd:float ;
     clbo:itemName "energy1" ;
-    clbo:jahr 2024 ;
-    clbo:region "RoW" .
-
-clbo:Abfall a owl:Class ;
-    rdfs:label "Abfall"@du,
-        "Waste"@en ;
-    rdfs:comment "Waste" ;
-    rdfs:isDefinedBy clbo: .
+    clbo:region "RoW" ;
+    clbo:year 2024 .
 
 clbo:Comany a owl:Class ;
     rdfs:label "Company"@en ;
     rdfs:comment "Company" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:DatenqualitätsnormB a owl:Class ;
-    rdfs:label "Daten qualitat norm B"@du,
-        "data quality standard B"@en ;
-    rdfs:comment "data quality standard B" ;
+clbo:DataQualityAssessment a owl:Class ;
+    rdfs:label "Daten qualitat sbewertung"@du,
+        "data quality assessment"@en ;
+    rdfs:comment "data quality assessment" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:DatenqualitätsnormC a owl:Class ;
-    rdfs:label "Daten qualitat norm C"@du,
-        "data quality standard C"@en ;
-    rdfs:comment "data quality standard C" ;
-    rdfs:isDefinedBy clbo: .
+clbr:Process_company1_product1_1 a clbo:Process ;
+    clbo:allocationPartNumber "" ;
+    clbo:hatInput clbr:company1_product1_InputProcess_0Fluzz1 ;
+    clbo:processmodule "End-of-Life" .
 
-clbo:DatenqualitätsnormD a owl:Class ;
-    rdfs:label "Daten qualitat norm D"@du,
-        "data quality standard D"@en ;
-    rdfs:comment "data quality standard D" ;
-    rdfs:isDefinedBy clbo: .
+clbr:Process_company1_product1_2 a clbo:Process ;
+    clbo:allocationPartNumber "" ;
+    clbo:hatInput clbr:company1_product1_InputProcess_1Fluzz2 ;
+    clbo:processmodule "Utilization phase" .
 
-clbo:DatenqualitätsnormE a owl:Class ;
-    rdfs:label "Daten qualitat norm E"@du,
-        "data quality standard E"@en ;
-    rdfs:comment "data quality standard E" ;
-    rdfs:isDefinedBy clbo: .
+clbr:Process_company1_product1_3 a clbo:Process ;
+    clbo:allocationPartNumber "" ;
+    clbo:hatInput clbr:company1_product1_InputProcess_2Fluzz3 ;
+    clbo:processmodule "SFM preassembly" .
 
-clbo:DatenqualitätsnormF a owl:Class ;
-    rdfs:label "Daten qualitat norm F"@du,
-        "data quality standard F"@en ;
-    rdfs:comment "data quality standard F" ;
-    rdfs:isDefinedBy clbo: .
+clbr:Process_company1_product1_4 a clbo:Process ;
+    clbo:allocationPartNumber "" ;
+    clbo:hatInput clbr:company1_product1_InputProcess_3Fluzz4 ;
+    clbo:processmodule "SFM preassembly" .
 
-clbo:DatenqualitätsnormG a owl:Class ;
-    rdfs:label "Daten qualitat norm G"@du,
-        "data quality standard G"@en ;
-    rdfs:comment "data quality standard G" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:DatenqualitätsnormH a owl:Class ;
-    rdfs:label "Daten qualitat norm H"@du,
-        "data quality standard H"@en ;
-    rdfs:comment "data quality standard H" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:DatenqualitätsnormI a owl:Class ;
-    rdfs:label "Daten qualitat norm I"@du,
-        "data quality standard I"@en ;
-    rdfs:comment "data quality standard I" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:DatenqualitätsnormJ a owl:Class ;
-    rdfs:label "Daten qualitat norm J"@du,
-        "data quality standard J"@en ;
-    rdfs:comment "data quality standard J" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:DirekteEmissionen a owl:Class ;
-    rdfs:label "direkte Emissionen"@du,
-        "direct Emissions"@en ;
-    rdfs:comment "direct Emissions" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:Eisenmetall a owl:Class ;
-    rdfs:label "Eisenmetall"@de,
-        "Iron Metal"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:Metall .
-
-clbo:Endprodukt a owl:Class ;
-    rdfs:label "Endprodukt"@du,
-        "End product"@en ;
-    rdfs:comment "End product" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:Kohlenstoffmodifikation a owl:Class ;
-    rdfs:label "Kohlenstoff Modifikation"@de,
-        "Carbon Modification"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:NichtMetall .
-
-clbo:MaterialEnergietrager a owl:Class ;
-    rdfs:label "Material Energieträger"@du,
-        "Material Energy carrier"@en ;
-    rdfs:comment "Material Energy carrier" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:Nichteisenmetall a owl:Class ;
-    rdfs:label "Nicht Eisen Metall"@de,
-        "Non-Iron Metal"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:Metall .
-
-clbo:Polymer a owl:Class ;
-    rdfs:label "Polymer"@de,
-        "Polymer"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:NichtMetall .
-
-clbo:Zwischenprodukt a owl:Class ;
-    rdfs:label "Zwischen produkt"@du,
-        "Intermediate product"@en ;
-    rdfs:comment "Intermediate product" ;
-    rdfs:isDefinedBy clbo: .
-
-clbr:Prozess_company1_product1_1 a clbo:Prozess ;
-    clbo:hatInput clbr:company1_product1_InputProzess_0Fluzz1 ;
-    clbo:prozessmodul "End-of-Life" ;
-    clbo:zuordnungTeilenummer "" .
-
-clbr:Prozess_company1_product1_2 a clbo:Prozess ;
-    clbo:hatInput clbr:company1_product1_InputProzess_1Fluzz2 ;
-    clbo:prozessmodul "Nutzungsphase" ;
-    clbo:zuordnungTeilenummer "" .
-
-clbr:Prozess_company1_product1_3 a clbo:Prozess ;
-    clbo:hatInput clbr:company1_product1_InputProzess_2Fluzz3 ;
-    clbo:prozessmodul "SFM Vormontage" ;
-    clbo:zuordnungTeilenummer "" .
-
-clbr:Prozess_company1_product1_4 a clbo:Prozess ;
-    clbo:hatInput clbr:company1_product1_InputProzess_3Fluzz4 ;
-    clbo:prozessmodul "SFM Vormontage" ;
-    clbo:zuordnungTeilenummer "" .
-
-clbr:THGEmissionen1_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "dummy_data" ;
-    clbo:einheit "kg CO2eq./kg" ;
-    clbo:emissionsfaktor "0.318"^^xsd:float ;
+clbr:THGEmissionen1_company1_product1 a clbo:THGEmissions ;
+    clbo:datasource "dummy_data" ;
+    clbo:emissionfactor "0.318"^^xsd:float ;
     clbo:item "Treatment of used industrial electronic device, mechanical treatment" ;
-    clbo:jahr 2023 ;
-    clbo:land "Global" .
+    clbo:land "Global" ;
+    clbo:unit "kg CO2eq./kg" ;
+    clbo:year 2023 .
 
-clbr:THGEmissionen2_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "dummy_data" ;
-    clbo:einheit "kg CO2eq./kWh" ;
-    clbo:emissionsfaktor "0.47"^^xsd:float ;
+clbr:THGEmissionen2_company1_product1 a clbo:THGEmissions ;
+    clbo:datasource "dummy_data" ;
+    clbo:emissionfactor "0.47"^^xsd:float ;
     clbo:item "Electricity grid mix" ;
-    clbo:jahr 2023 ;
-    clbo:land "Germany" .
+    clbo:land "Germany" ;
+    clbo:unit "kg CO2eq./kWh" ;
+    clbo:year 2023 .
 
-clbr:THGEmissionen3_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "dummy_data" ;
-    clbo:einheit "kg CO2eq./kg" ;
-    clbo:emissionsfaktor "5.78"^^xsd:float ;
+clbr:THGEmissionen3_company1_product1 a clbo:THGEmissions ;
+    clbo:datasource "dummy_data" ;
+    clbo:emissionfactor "5.78"^^xsd:float ;
     clbo:item "Steel screw" ;
-    clbo:jahr 2023 ;
-    clbo:land "Germany" .
+    clbo:land "Germany" ;
+    clbo:unit "kg CO2eq./kg" ;
+    clbo:year 2023 .
 
-clbr:THGEmissionen4_company1_product1 a clbo:THGEmissionen ;
-    clbo:datenquelle "dummy_data" ;
-    clbo:einheit "kg CO2eq./kg" ;
-    clbo:emissionsfaktor "2.57"^^xsd:float ;
+clbr:THGEmissionen4_company1_product1 a clbo:THGEmissions ;
+    clbo:datasource "dummy_data" ;
+    clbo:emissionfactor "2.57"^^xsd:float ;
     clbo:item "PVC" ;
-    clbo:jahr 2023 ;
-    clbo:land "Germany" .
+    clbo:land "Germany" ;
+    clbo:unit "kg CO2eq./kg" ;
+    clbo:year 2023 .
 
-clbr:company1_product1_Energie3 a clbo:Energie ;
-    rdfs:label "elektrische Energie" .
+clbr:company1_product1_Energy3 a clbo:Energy ;
+    rdfs:label "Electrical energy" .
 
-clbr:company1_product1_Entsorgung1 a clbo:Entsorgung ;
-    rdfs:label "Entsorgung gebrauchter elektronischer Industriegeräte" .
-
-clbr:company1_product1_InputProzess_0Fluzz1 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen1_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Entsorgung1 ;
-    clbo:lebenszyklusphase "End-of-Life" ;
+clbr:company1_product1_InputProcess_0Fluzz1 a clbo:Flow ;
+    clbo:allocationValueChain "Gate-to-Grave" ;
+    clbo:hasCategory clbr:company1_product1_Wastedisposal1 ;
+    clbo:hasEmissionsfaktor clbr:THGEmissionen1_company1_product1 ;
+    clbo:lifecyclePhase "End-of-Life" ;
     clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "15.66"^^xsd:float ;
-    clbo:scope 3.12e+00 ;
-    clbo:zuordnungWertschöpfungskette "Gate-to-Grave" .
+    clbo:resulingQuantityPerReferenceFlow "15.66"^^xsd:float ;
+    clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
+    clbo:scope 3.12e+00 .
 
-clbr:company1_product1_InputProzess_1Fluzz2 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "kWh" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen2_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Energie3 ;
-    clbo:lebenszyklusphase "Nutzung" ;
+clbr:company1_product1_InputProcess_1Fluzz2 a clbo:Flow ;
+    clbo:allocationValueChain "Gate-to-Grave" ;
+    clbo:hasCategory clbr:company1_product1_Energy3 ;
+    clbo:hasEmissionsfaktor clbr:THGEmissionen2_company1_product1 ;
+    clbo:lifecyclePhase "Utilization" ;
     clbo:relevantPCF true ;
-    clbo:scope 3.11e+00 ;
-    clbo:zuordnungWertschöpfungskette "Gate-to-Grave" .
+    clbo:resulingQuantityPerReferenceFlowUnit "kWh" ;
+    clbo:scope 3.11e+00 .
 
-clbr:company1_product1_InputProzess_2Fluzz3 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen3_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Material5 ;
-    clbo:lebenszyklusphase "Vorkette" ;
+clbr:company1_product1_InputProcess_2Fluzz3 a clbo:Flow ;
+    clbo:allocationValueChain "Cradle-to-Gate" ;
+    clbo:hasCategory clbr:company1_product1_Material5 ;
+    clbo:hasEmissionsfaktor clbr:THGEmissionen3_company1_product1 ;
+    clbo:lifecyclePhase "UpstreamChain" ;
     clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "0.04"^^xsd:float ;
-    clbo:scope 3.1e+00 ;
-    clbo:zuordnungWertschöpfungskette "Cradle-to-Gate" .
+    clbo:resulingQuantityPerReferenceFlow "0.04"^^xsd:float ;
+    clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
+    clbo:scope 3.1e+00 .
 
-clbr:company1_product1_InputProzess_3Fluzz4 a clbo:Fluss ;
-    clbo:einheitResultierendeMengejeJeReferenzfluss "kg" ;
-    clbo:hatEmissionsfaktor clbr:THGEmissionen4_company1_product1 ;
-    clbo:hatKategorie clbr:company1_product1_Material7 ;
-    clbo:lebenszyklusphase "Vorkette" ;
+clbr:company1_product1_InputProcess_3Fluzz4 a clbo:Flow ;
+    clbo:allocationValueChain "Cradle-to-Gate" ;
+    clbo:hasCategory clbr:company1_product1_Material7 ;
+    clbo:hasEmissionsfaktor clbr:THGEmissionen4_company1_product1 ;
+    clbo:lifecyclePhase "UpstreamChain" ;
     clbo:relevantPCF true ;
-    clbo:resultierendeMengejeJeReferenzfluss "0.01"^^xsd:float ;
-    clbo:scope 3.1e+00 ;
-    clbo:zuordnungWertschöpfungskette "Cradle-to-Gate" .
+    clbo:resulingQuantityPerReferenceFlow "0.01"^^xsd:float ;
+    clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
+    clbo:scope 3.1e+00 .
 
 clbr:company1_product1_Material5 a clbo:Material ;
-    rdfs:label "KB Fuß BG, Rohteil" .
+    rdfs:label "KB foot BG, blank" .
 
 clbr:company1_product1_Material7 a clbo:Material ;
-    rdfs:label "KB Fuß BG, Umspritzung" .
+    rdfs:label "KB foot BG, overmolding" .
+
+clbr:company1_product1_Wastedisposal1 a clbo:Wastedisposal ;
+    rdfs:label "Disposal of used electronic industrial devices" .
 
 clbr:product_company1_product1 a clbo:Product ;
     rdfs:label "product1" ;
-    clbo:hatProzess clbr:Prozess_company1_product1_1,
-        clbr:Prozess_company1_product1_2,
-        clbr:Prozess_company1_product1_3,
-        clbr:Prozess_company1_product1_4 .
+    clbo:hasProcess clbr:Process_company1_product1_1,
+        clbr:Process_company1_product1_2,
+        clbr:Process_company1_product1_3,
+        clbr:Process_company1_product1_4 .
 
 clbo:Energie a owl:Class ;
     rdfs:label "Energie"@du,
@@ -707,39 +491,33 @@ clbo:Energie a owl:Class ;
     rdfs:comment "Energy" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:NichtMetall a owl:Class ;
-    rdfs:label "Nicht Metall"@du,
-        "Non-Metal"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:Material .
+clbo:Transport a owl:Class ;
+    rdfs:label "Transportieren"@du,
+        "Transport"@en ;
+    rdfs:comment "Transport" ;
+    rdfs:isDefinedBy clbo: .
 
-clbo:Allokation a owl:Class ;
+clbo:Allocation a owl:Class ;
     rdfs:label "Allokation"@du,
         "Allocation"@en ;
     rdfs:comment "Allocation" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:Metall a owl:Class ;
-    rdfs:label "Metall"@du,
-        "Metal"@en ;
-    rdfs:isDefinedBy clbo: ;
-    rdfs:subClassOf clbo:Material .
+clbo:DataValidation a owl:Class ;
+    rdfs:label "Datenvalidierung"@du,
+        "Data Validation"@en ;
+    rdfs:comment "Data Validation" ;
+    rdfs:isDefinedBy clbo: .
 
 clbo:Product a owl:Class ;
     rdfs:label "Product"@en ;
     rdfs:comment "Product" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:Referenzfluss a owl:Class ;
+clbo:ReferenceFlow a owl:Class ;
     rdfs:label "Reference Fluss"@du,
         "Reference Flow"@en ;
     rdfs:comment "Reference Flow" ;
-    rdfs:isDefinedBy clbo: .
-
-clbo:Dokumentation a owl:Class ;
-    rdfs:label "Dokumentation"@du,
-        "Documentation"@en ;
-    rdfs:comment "Documentation" ;
     rdfs:isDefinedBy clbo: .
 
 clbo:Material a owl:Class ;
@@ -748,19 +526,25 @@ clbo:Material a owl:Class ;
     rdfs:comment "Material" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:THGEmissionen a owl:Class ;
+clbo:Documentation a owl:Class ;
+    rdfs:label "Dokumentation"@du,
+        "Documentation"@en ;
+    rdfs:comment "Documentation" ;
+    rdfs:isDefinedBy clbo: .
+
+clbo:THGEmissions a owl:Class ;
     rdfs:label "THG Emissionen"@du,
         "THG Emissions"@en ;
     rdfs:comment "" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:Prozess a owl:Class ;
+clbo:Process a owl:Class ;
     rdfs:label "Prozess"@du,
         "Process"@en ;
     rdfs:comment "Process" ;
     rdfs:isDefinedBy clbo: .
 
-clbo:Fluss a owl:Class ;
+clbo:Flow a owl:Class ;
     rdfs:label "Fluss"@du,
         "Flow"@en ;
     rdfs:comment "Flow for the given process the. Flow can be input flow and Output flow" ;
