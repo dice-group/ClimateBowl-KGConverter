@@ -37,28 +37,28 @@ function PcfTracking() {
     PREFIX : <https://climatebowl.data.dice-research.org/ontology/>
     PREFIX clbr: <https://climatebowl.data.dice-research.org/resource/>
       
-      SELECT ?company ?processModule ?kategorie ?zuordung ?scope ?lebenszyklusphase ?fluss ?menge  ?unit ?emissionsfaktor ?region ?year ((?emissionsfaktor * ?menge) AS ?result)
+      SELECT ?company ?processModule ?category ?Allocation ?scope ?lifecyclePhase ?flow ?value  ?unit ?emissionsfactor ?region ?year ((?emissionsfactor * ?value) AS ?result)
       WHERE {
-      ?flussR  :lebenszyklusphase ?lebenszyklusphase ;
-                 :resultierendeMengejeJeReferenzfluss ?resultierendeMenge ;
-                 :hatKategorie ?kategorie;
+      ?flowR  :lifecyclePhase ?lifecyclePhase ;
+                 :resulingQuantityPerReferenceFlow ?resultierendeMenge ;
+                 :hasCategory ?category;
                  :scope ?scope ;
-                 :resultierendeMengejeJeReferenzfluss ?menge ;
-                 :einheitResultierendeMengejeJeReferenzfluss ?unit ;
-                 :zuordnungWertschöpfungskette ?zuordung ;
-                 :hatEmissionsfaktor ?emissionsfaktorR .
-        ?emissionsfaktorR :emissionsfaktor ?emissionsfaktor ;
+                 :resulingQuantityPerReferenceFlow ?value ;
+                 :resulingQuantityPerReferenceFlowUnit ?unit ;
+                 :allocationValueChain ?Allocation ;
+                 :hasEmissionsfactor ?emissionsfactorR .
+        ?emissionsfactorR :emissionfactor ?emissionsfactor ;
                             :land ?region;
-             :jahr ?year.
-      ?kategorie rdfs:label ?fluss.
-      ?subject ?predicate ?flussR .
-      ?subject :prozessmodul ?processModule .
+             :year ?year.
+      ?category rdfs:label ?flow.
+      ?subject ?predicate ?flowR .
+      ?subject :processmodule ?processModule .
   	?company a :Company;
   				rdfs:label "company1";
-  				:hatProduct ?product.
+  				:hasProduct ?product.
   	?product a :Product;
                rdfs:label "product1".
-  ?product :hatProzess ?subject.
+  ?product :hasProcess ?subject.
 
     }`;
     if (query === "") setQuery(queryValue);

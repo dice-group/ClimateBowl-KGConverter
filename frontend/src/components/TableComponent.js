@@ -10,11 +10,11 @@ const TableComponent = ({ data, originalData, updatePCFValue }) => {
     newData = data;
   }
   var excludedColumns = [
-    "menge",
+    "vlue",
     "unit",
-    "emissionsfaktor",
+    "emissionsfactor",
     "company",
-    "kategorie",
+    "category",
   ];
   var difference = [];
   if (originalData.length !== 0 && newData.length !== 0) {
@@ -51,7 +51,7 @@ const TableComponent = ({ data, originalData, updatePCFValue }) => {
             {newData.map((row, key) => (
               <tr>
                 {Object.entries(row).map((item, index) => {
-                  if (item[0] === "fluss") {
+                  if (item[0] === "flow") {
                     return (
                       <td>
                         <DropdownComponent

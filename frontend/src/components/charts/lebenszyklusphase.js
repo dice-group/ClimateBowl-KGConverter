@@ -8,11 +8,11 @@ function updateData(data) {
   let phasesArray = {};
   let total = 0;
   for (let i = 0; i < data.length; i++) {
-    if (data[i].lebenszyklusphase in phasesArray) {
-      phasesArray[data[i].lebenszyklusphase] =
-        phasesArray[data[i].lebenszyklusphase] + parseFloat(data[i].result);
+    if (data[i].lifecyclePhase in phasesArray) {
+      phasesArray[data[i].lifecyclePhase] =
+        phasesArray[data[i].lifecyclePhase] + parseFloat(data[i].result);
     } else {
-      phasesArray[data[i].lebenszyklusphase] = parseFloat(data[i].result);
+      phasesArray[data[i].lifecyclePhase] = parseFloat(data[i].result);
     }
     total = total + parseFloat(data[i].result);
   }
@@ -23,7 +23,7 @@ function updateData(data) {
   });
 }
 
-const LebenszyklusPhase = ({ data, originalData }) => {
+const lifecyclePhase = ({ data, originalData }) => {
   var difference = [];
   const filteredData = updateData(data);
   // console.log("filtered", filteredData);
@@ -142,7 +142,7 @@ const LebenszyklusPhase = ({ data, originalData }) => {
 
   return (
     <>
-      <h4>LebenszyklusPhase</h4>
+      <h4>lifecyclePhase</h4>
       <hr></hr>
       <Col xs lg="6">
         <Table striped bordered hover responsive>
@@ -197,4 +197,4 @@ const LebenszyklusPhase = ({ data, originalData }) => {
   );
 };
 
-export default LebenszyklusPhase;
+export default lifecyclePhase;

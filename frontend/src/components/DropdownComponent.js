@@ -4,7 +4,7 @@ import AsyncSelect from "react-select/async";
 function DropdownComponent({ row, index, updatePCFValue }) {
   const [selectedOption, setSelectedOption] = useState({
     value: row,
-    label: row.fluss,
+    label: row.flow,
   });
 
   const handleChange = (selectedOption) => {
@@ -13,11 +13,11 @@ function DropdownComponent({ row, index, updatePCFValue }) {
     updatePCF(selectedOption.value);
   };
   const updatePCF = (newData) => {
-    row.fluss = newData.name;
-    row.emissionsfaktor = newData.emissionsfaktor;
+    row.flow = newData.name;
+    row.emissionsfactor = newData.emissionsfactor;
     row.region = newData.region;
     row.year = newData.year;
-    row.result = row.menge * newData.emissionsfaktor;
+    row.result = row.value * newData.emissionsfactor;
     updatePCFValue(row, index, newData.name);
   };
 
@@ -27,12 +27,12 @@ function DropdownComponent({ row, index, updatePCFValue }) {
     }
     const queryValue = `PREFIX : <https://climatebowl.data.dice-research.org/ontology/>
 
-    SELECT DISTINCT ?name ?item ?region ?year ?emissionsfaktor
+    SELECT DISTINCT ?name ?item ?region ?year ?emissionsfactor
     WHERE {
-      ?item :emissionenWert ?emissionsfaktor;
+      ?item :emissionsValue ?emissionsfactor;
             :itemName ?name;
             :region ?region;
-            :jahr ?year.
+            :year ?year.
             
     FILTER(CONTAINS(LCASE(STR(?name)), "${inputValue}"))
     }
