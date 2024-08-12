@@ -295,8 +295,8 @@ clbr:material1_data1 clbo:emissionsUnit "kg" ;
     clbo:year 2024 .
 
 clbr:material2_company1_product1 a clbo:Electronics ;
-    clbo:emissionsValue "0.318"^^xsd:float,
-        "kg CO2eq./kg" ;
+    clbo:emissionsUnit "kg CO2eq./kg" ;
+    clbo:emissionsValue "0.318"^^xsd:float ;
     clbo:itemName "Disposal of used electronic industrial devices" ;
     clbo:region "Global" ;
     clbo:year 2023 .
@@ -314,8 +314,8 @@ clbr:material3_data1 clbo:emissionsUnit "kg" ;
     clbo:year 2024 .
 
 clbr:material4_company1_product1 a clbo:Energy_source ;
-    clbo:emissionsValue "0.47"^^xsd:float,
-        "kg CO2eq./kWh" ;
+    clbo:emissionsUnit "kg CO2eq./kWh" ;
+    clbo:emissionsValue "0.47"^^xsd:float ;
     clbo:itemName "Electrical energy" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
@@ -333,8 +333,8 @@ clbr:material5_data1 clbo:emissionsUnit "kg" ;
     clbo:year 2024 .
 
 clbr:material6_company1_product1 a clbo:Metal ;
-    clbo:emissionsValue "5.78"^^xsd:float,
-        "kg CO2eq./kg" ;
+    clbo:emissionsUnit "kg CO2eq./kg" ;
+    clbo:emissionsValue "5.78"^^xsd:float ;
     clbo:itemName "KB foot BG, blank" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
@@ -352,8 +352,8 @@ clbr:material7_data1 clbo:emissionsUnit "kg" ;
     clbo:year 2024 .
 
 clbr:material8_company1_product1 a clbo:Non-metal ;
-    clbo:emissionsValue "2.57"^^xsd:float,
-        "kg CO2eq./kg" ;
+    clbo:emissionsUnit "kg CO2eq./kg" ;
+    clbo:emissionsValue "2.57"^^xsd:float ;
     clbo:itemName "KB foot BG, overmolding" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
