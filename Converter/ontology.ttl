@@ -161,7 +161,7 @@ clbo:THGEmissions a owl:Class;
     rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
     rdfs:comment "" .
 
-clbo:hasEmissionsfaktor a owl:Property;
+clbo:hasEmissionsfactor a owl:Property;
     rdfs:label "has Emission Factor"@en, ":hat Emissions faktor"@du;
     rdfs:domain clbo:Material, clbo:Energie, clbo:Transport;
     rdfs:range clbo:THGEmissions;
