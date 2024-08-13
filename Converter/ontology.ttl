@@ -1,11 +1,11 @@
-@prefix clbo: <https://climatebowl.data.dice-research.org/ontology/> .
+@prefix clbo: <http://w3id.org/dice-research/climatebowl/ontology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://climatebowl.data.dice-research.org/ontology/> a owl:Ontology ;
+clbo: a owl:Ontology ;
     dc:title "Climate Bowl Schema (CLBO)" ;
     rdfs:label "ClimateBowl Ontology" ;
     rdfs:comment """
@@ -15,123 +15,123 @@
 # Company
 clbo:Comany a owl:Class;
     rdfs:label "Company"@en;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Company" .
 
 
 clbo:Product a owl:Class;
     rdfs:label "Product"@en;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Product" .
 
 clbo:hasProduct a owl:Property ;
     rdfs:label "has product"@en, "hat Product"@du ;
     rdfs:domain clbo:Comany ;
     rdfs:range clbo:Product ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "A company has Product" .
 
 # Prozess Class
 clbo:Process a owl:Class ;
     rdfs:label "Process"@en, "Prozess"@du ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Process" .
 
 clbo:hasProcess a owl:Property ;
     rdfs:label "has Process"@en, "hat Prozess"@du ;
     rdfs:domain clbo:Product ;
     rdfs:range clbo:Process ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "A Product has Process" .
 
 clbo:processmodule a owl:Property ;
     rdfs:label "Process Module"@en, "Prozess Modul"@du ;
     rdfs:domain clbo:Process ;
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment " Name of the process " .
 
 clbo:allocationPartNumber a owl:Property ;
     rdfs:label "Allocation Part Number"@en, "Zuordnung Teile nummer"@du ;
     rdfs:domain clbo:Process ;    
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Allocated Part Number for the process" .
 
 # Flow Class
 clbo:Flow a owl:Class;
     rdfs:label "Flow"@en, "Fluss"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Flow for the given process the. Flow can be input flow and Output flow" .
 
 clbo:hasInput a owl:Property ;
     rdfs:label "has Input"@en, "hat Input"@du ;
     rdfs:domain clbo:Process ;
     rdfs:range clbo:Flow ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "A Process has input Flow" .
 
 clbo:hasOutput a owl:Property ;
     rdfs:domain clbo:Process ;
     rdfs:label "has Output"@en, "hat Output"@du ;
     rdfs:range clbo:Flow ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "A Process has Output Flow" .
 
 clbo:relevantPCF a owl:Property;
     rdfs:domain clbo:Flow;
     rdfs:label "Relefent for PCF"@en, "Relevant für PCF"@du;
     rdfs:range xsd:boolean ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Flow is relevent for Product Carbon Footprint(PCF)" .
 
 clbo:allocationValueChain a owl:Property;
     rdfs:domain clbo:Flow;
     rdfs:label "Allocation Value Chain"@en, "Zuordnung Wertschöpfungskette"@du ;
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Assignment Value chain. There can be three types; Cradle to Gate, Gate-to-Gate, and Gate-to-Grave." .
 
 clbo:scope a owl:Property;
     rdfs:domain clbo:Flow;
     rdfs:label "Scope"@en, "Scope"@du;
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Scope" .
 
 clbo:lifecyclePhase a owl:Property;
     rdfs:label "Life Cycle Phase"@en, "leben szyklus phase"@du;
     rdfs:domain clbo:Flow;
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Life Cycle Phase" .
 
 clbo:normalizedAmmount a owl:Property;
     rdfs:label "normalized amount of flows"@en, "normierte Menge des Flusses"@du;
     rdfs:domain clbo:Flow;
     rdfs:range xsd:float ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "normalized amount of flow" .
 
 clbo:unitNormalizedAmmount a owl:Property;
     rdfs:label "normalized amount of flow Unit"@en, "Einheit normierte  Menge des Flusses"@du;
     rdfs:domain clbo:Flow;
     rdfs:range  xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Unit for normalized amount of flow" .
 
 clbo:resulingQuantityPerReferenceFlow a owl:Property;
     rdfs:label "resulting quantity per reference flow"@en, "resultierende Menge je Referenzfluss"@du;
     rdfs:domain clbo:Flow;
     rdfs:range xsd:float ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "" .
 
 clbo:resulingQuantityPerReferenceFlowUnit a owl:Property;
     rdfs:label "resulting quantity per reference flow unit"@en, "Einheit resultierende Menge je Referenzfluss"@du;
     rdfs:domain clbo:Flow;
     rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Unit for resulting quantity per reference flow" .
 
 # Kategories
@@ -139,75 +139,75 @@ clbo:resulingQuantityPerReferenceFlowUnit a owl:Property;
 # Material Class
 clbo:Material a owl:Class;
     rdfs:label "Material"@en, "Material"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Material" .
 
 clbo:Energie a owl:Class;
     rdfs:label "Energy"@en, "Energie"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Energy" .
 
 
 # Transport Class
 clbo:Transport a owl:Class;
     rdfs:label "Transport"@en, "Transportieren"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Transport" .
 
 
 # THGEmissions Class
 clbo:THGEmissions a owl:Class;
     rdfs:label "THG Emissions"@en, "THG Emissionen"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "" .
 
 clbo:hasEmissionsfactor a owl:Property;
     rdfs:label "has Emission Factor"@en, ":hat Emissions faktor"@du;
     rdfs:domain clbo:Material, clbo:Energie, clbo:Transport;
     rdfs:range clbo:THGEmissions;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "" .
 
 clbo:item a owl:Property;
     rdfs:label "item"@en, "item"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:string;;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "item name" .
 
 clbo:emissionfactor a owl:Property;
     rdfs:label "emission factor"@en, "emissionen factor"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:float;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "emission factor" .
 
 clbo:unit a owl:Property;
     rdfs:label "unit"@en, "unit"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "unit" .
 
 clbo:land a owl:Property;
     rdfs:label "land"@en, "land"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:string;;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "land" .
 
 clbo:year a owl:Property;
     rdfs:label "year"@en, "jahr"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:string;;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "year" .
 
 clbo:datasource a owl:Property;
     rdfs:label "datasource"@en, "datenquelle"@du;
     rdfs:domain clbo:THGEmissions;
     rdfs:range xsd:string;;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "datasource" .
 
 
@@ -215,127 +215,127 @@ clbo:hasCategory a owl:Property;
     rdfs:label "Has Category"@en, "Hat Kategorie"@du;
     rdfs:domain clbo:Flow;
     rdfs:range clbo:Material, clbo:Energie, clbo:Transport;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Has Category" .
 
 # Referenzfluss Class
 clbo:ReferenceFlow a owl:Class;
     rdfs:label "Reference Flow"@en, "Reference Fluss"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Reference Flow" .
 
 clbo:hasReferenceFlow a owl:Property;
     rdfs:label "Has Reference Flow"@en, "Hat Referencez Fluss"@du;
     rdfs:domain clbo:Process;
     rdfs:range clbo:ReferenceFlow;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Has Reference Flow" .
 
 clbo:referenceflow a owl:Property;
     rdfs:label "Reference Flow"@en, "Referencez Fluss"@du;
     rdfs:domain clbo:ReferenceFlow;
     rdfs:range xsd:float;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Reference Flow" .
 
 clbo:unit a owl:Property;
     rdfs:label "unit"@en, "einheit"@du;
     rdfs:domain clbo:ReferenceFlow;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "unit for reference flow" .
 
 
 # Documentation Class
 clbo:Documentation a owl:Class;
     rdfs:label "Documentation"@en, "Dokumentation"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Documentation" .
 
 clbo:hasDocumentation a owl:Property;
     rdfs:label "Has Documentation"@en, "Hat Dokumentation"@du;
     rdfs:domain clbo:Process;
     rdfs:range clbo:Documentation;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Has Documentation" .
 
 clbo:fulfillsDataQualityRequirements a owl:Property;
     rdfs:label "Fulfills data quality requirements"@en, "Erfüllt Datenqualität Anforderungen"@du;
     rdfs:domain clbo:Documentation;
     rdfs:range xsd:boolean;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Fulfillment of data quality requirements" .
 
 clbo:dataCollectionProcedure a owl:Property;
     rdfs:label "data collection procedures"@en, "datenerhebungsverfahren"@du;
     rdfs:domain clbo:Documentation;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "data collection procedure" .
 
 # Allocation Class
 clbo:Allocation a owl:Class;
     rdfs:label "Allocation"@en, "Allokation"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Allocation" .
 
 clbo:hasAllocation a owl:Property;
     rdfs:label "Has Allocation"@en, "Hat Allokation"@du;
     rdfs:domain clbo:Documentation;
     rdfs:range clbo:Allocation;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Has Allocation" .
 
 clbo:allocationProcedure a owl:Property;
     rdfs:label "Allocation procedure"@en, "Allokationsverfahren"@du;
     rdfs:domain clbo:Allocation;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Allocation procedure" .
 
 clbo:isNecessary a owl:Property;
     rdfs:label "Is necessary"@en, "ist Notwending"@du;
     rdfs:domain clbo:Allocation;
     rdfs:range xsd:boolean;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Is necessary" .
 
 # DataValidation Class
 clbo:DataValidation a owl:Class;
     rdfs:label "Data Validation"@en, "Datenvalidierung"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Data Validation" .
 
 clbo:hasDataValidation a owl:Property;
     rdfs:label "Has Data Validation"@en, "Hat Datenvalidierung"@du;
     rdfs:domain clbo:Documentation;
     rdfs:range clbo:DataValidation;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Data Validation" .
 
 clbo:result a owl:Property;
     rdfs:label "result"@en, "ergebnis"@du;
     rdfs:domain clbo:DataValidation;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "result" .
 
 clbo:procedure a owl:Property;
     rdfs:label "procedure"@en, "verfahren"@du;
     rdfs:domain clbo:DataValidation;
     rdfs:range xsd:string;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "procedure" .
 
 # DataQualityAssessment Class
 clbo:DataQualityAssessment a owl:Class;
     rdfs:label "data quality assessment"@en, "Daten qualitat sbewertung"@du;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "data quality assessment" .
 
 clbo:hasDataQualityAssessment a owl:Property;
     rdfs:label "Has data quality assessment"@en, "Hat Daten qualitat sbewertung"@du;
     rdfs:domain clbo:Process;
     rdfs:range clbo:DataQualityAssessment;
-    rdfs:isDefinedBy <https://climatebowl.data.dice-research.org/ontology/> ;
+    rdfs:isDefinedBy clbo: ;
     rdfs:comment "Has data quality assessment" .
