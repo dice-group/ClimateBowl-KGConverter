@@ -1,5 +1,4 @@
-@prefix clbo: <https://climatebowl.data.dice-research.org/ontology/> .
-@prefix clbr: <https://climatebowl.data.dice-research.org/resource/> .
+@prefix clbo: <http://w3id.org/dice-research/climatebowl/ontology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -284,81 +283,81 @@ clbo:year a owl:Property ;
     rdfs:isDefinedBy clbo: ;
     rdfs:range xsd:string .
 
-clbr:company_company1 a clbo:Company ;
+<https://climatebowl.data.dice-research.org/resource/company_company1> a clbo:Company ;
     rdfs:label "company1" ;
-    clbo:hasProduct clbr:product_company1_product1 .
+    clbo:hasProduct <https://climatebowl.data.dice-research.org/resource/product_company1_product1> .
 
-clbr:material1_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material1_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "6.8853397292"^^xsd:float ;
     clbo:itemName "material1" ;
     clbo:region "RoW" ;
     clbo:year 2024 .
 
-clbr:material2_company1_product1 a clbo:Electronics ;
+<https://climatebowl.data.dice-research.org/resource/material2_company1_product1> a clbo:Electronics ;
     clbo:emissionsUnit "kg CO2eq./kg" ;
     clbo:emissionsValue "0.318"^^xsd:float ;
     clbo:itemName "Disposal of used electronic industrial devices" ;
     clbo:region "Global" ;
     clbo:year 2023 .
 
-clbr:material2_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material2_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "6.9575603261"^^xsd:float ;
     clbo:itemName "material1" ;
     clbo:region "US" ;
     clbo:year 2024 .
 
-clbr:material3_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material3_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "1.2622380867"^^xsd:float ;
     clbo:itemName "material2" ;
     clbo:region "GLO" ;
     clbo:year 2024 .
 
-clbr:material4_company1_product1 a clbo:Energy_source ;
+<https://climatebowl.data.dice-research.org/resource/material4_company1_product1> a clbo:Energy_source ;
     clbo:emissionsUnit "kg CO2eq./kWh" ;
     clbo:emissionsValue "0.47"^^xsd:float ;
     clbo:itemName "Electrical energy" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
 
-clbr:material4_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material4_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "1.6851920537"^^xsd:float ;
     clbo:itemName "material3" ;
     clbo:region "GLO" ;
     clbo:year 2024 .
 
-clbr:material5_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material5_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "8.3429301545"^^xsd:float ;
     clbo:itemName "materail4" ;
     clbo:region "RoW" ;
     clbo:year 2024 .
 
-clbr:material6_company1_product1 a clbo:Metal ;
+<https://climatebowl.data.dice-research.org/resource/material6_company1_product1> a clbo:Metal ;
     clbo:emissionsUnit "kg CO2eq./kg" ;
     clbo:emissionsValue "5.78"^^xsd:float ;
     clbo:itemName "KB foot BG, blank" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
 
-clbr:material6_data1 clbo:emissionsUnit "MJ" ;
+<https://climatebowl.data.dice-research.org/resource/material6_data1> clbo:emissionsUnit "MJ" ;
     clbo:emissionsValue "0.0006555956"^^xsd:float ;
     clbo:itemName "material5" ;
     clbo:region "GLO" ;
     clbo:year 2024 .
 
-clbr:material7_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material7_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "0.0297171142"^^xsd:float ;
     clbo:itemName "energy1" ;
     clbo:region "GLO" ;
     clbo:year 2024 .
 
-clbr:material8_company1_product1 a clbo:Non-metal ;
+<https://climatebowl.data.dice-research.org/resource/material8_company1_product1> a clbo:Non-metal ;
     clbo:emissionsUnit "kg CO2eq./kg" ;
     clbo:emissionsValue "2.57"^^xsd:float ;
     clbo:itemName "KB foot BG, overmolding" ;
     clbo:region "Germany" ;
     clbo:year 2023 .
 
-clbr:material8_data1 clbo:emissionsUnit "kg" ;
+<https://climatebowl.data.dice-research.org/resource/material8_data1> clbo:emissionsUnit "kg" ;
     clbo:emissionsValue "7.4886891693"^^xsd:float ;
     clbo:itemName "energy1" ;
     clbo:region "RoW" ;
@@ -375,27 +374,27 @@ clbo:DataQualityAssessment a owl:Class ;
     rdfs:comment "data quality assessment" ;
     rdfs:isDefinedBy clbo: .
 
-clbr:Process_company1_product1_1 a clbo:Process ;
+<https://climatebowl.data.dice-research.org/resource/Process_company1_product1_1> a clbo:Process ;
     clbo:allocationPartNumber "" ;
-    clbo:hatInput clbr:company1_product1_InputProcess_0Fluzz1 ;
+    clbo:hatInput <https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_0Fluzz1> ;
     clbo:processmodule "End-of-Life" .
 
-clbr:Process_company1_product1_2 a clbo:Process ;
+<https://climatebowl.data.dice-research.org/resource/Process_company1_product1_2> a clbo:Process ;
     clbo:allocationPartNumber "" ;
-    clbo:hatInput clbr:company1_product1_InputProcess_1Fluzz2 ;
+    clbo:hatInput <https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_1Fluzz2> ;
     clbo:processmodule "Utilization phase" .
 
-clbr:Process_company1_product1_3 a clbo:Process ;
+<https://climatebowl.data.dice-research.org/resource/Process_company1_product1_3> a clbo:Process ;
     clbo:allocationPartNumber "" ;
-    clbo:hatInput clbr:company1_product1_InputProcess_2Fluzz3 ;
+    clbo:hatInput <https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_2Fluzz3> ;
     clbo:processmodule "SFM preassembly" .
 
-clbr:Process_company1_product1_4 a clbo:Process ;
+<https://climatebowl.data.dice-research.org/resource/Process_company1_product1_4> a clbo:Process ;
     clbo:allocationPartNumber "" ;
-    clbo:hatInput clbr:company1_product1_InputProcess_3Fluzz4 ;
+    clbo:hatInput <https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_3Fluzz4> ;
     clbo:processmodule "SFM preassembly" .
 
-clbr:THGEmissionen1_company1_product1 a clbo:THGEmissions ;
+<https://climatebowl.data.dice-research.org/resource/THGEmissionen1_company1_product1> a clbo:THGEmissions ;
     clbo:datasource "dummy_data" ;
     clbo:emissionfactor "0.318"^^xsd:float ;
     clbo:item "Treatment of used industrial electronic device, mechanical treatment" ;
@@ -403,7 +402,7 @@ clbr:THGEmissionen1_company1_product1 a clbo:THGEmissions ;
     clbo:unit "kg CO2eq./kg" ;
     clbo:year 2023 .
 
-clbr:THGEmissionen2_company1_product1 a clbo:THGEmissions ;
+<https://climatebowl.data.dice-research.org/resource/THGEmissionen2_company1_product1> a clbo:THGEmissions ;
     clbo:datasource "dummy_data" ;
     clbo:emissionfactor "0.47"^^xsd:float ;
     clbo:item "Electricity grid mix" ;
@@ -411,7 +410,7 @@ clbr:THGEmissionen2_company1_product1 a clbo:THGEmissions ;
     clbo:unit "kg CO2eq./kWh" ;
     clbo:year 2023 .
 
-clbr:THGEmissionen3_company1_product1 a clbo:THGEmissions ;
+<https://climatebowl.data.dice-research.org/resource/THGEmissionen3_company1_product1> a clbo:THGEmissions ;
     clbo:datasource "dummy_data" ;
     clbo:emissionfactor "5.78"^^xsd:float ;
     clbo:item "Steel screw" ;
@@ -419,7 +418,7 @@ clbr:THGEmissionen3_company1_product1 a clbo:THGEmissions ;
     clbo:unit "kg CO2eq./kg" ;
     clbo:year 2023 .
 
-clbr:THGEmissionen4_company1_product1 a clbo:THGEmissions ;
+<https://climatebowl.data.dice-research.org/resource/THGEmissionen4_company1_product1> a clbo:THGEmissions ;
     clbo:datasource "dummy_data" ;
     clbo:emissionfactor "2.57"^^xsd:float ;
     clbo:item "PVC" ;
@@ -427,63 +426,63 @@ clbr:THGEmissionen4_company1_product1 a clbo:THGEmissions ;
     clbo:unit "kg CO2eq./kg" ;
     clbo:year 2023 .
 
-clbr:company1_product1_Energy3 a clbo:Energy ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_Energy3> a clbo:Energy ;
     rdfs:label "Electrical energy" .
 
-clbr:company1_product1_InputProcess_0Fluzz1 a clbo:Flow ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_0Fluzz1> a clbo:Flow ;
     clbo:allocationValueChain "Gate-to-Grave" ;
-    clbo:hasCategory clbr:company1_product1_Wastedisposal1 ;
-    clbo:hasEmissionsfactor clbr:THGEmissionen1_company1_product1 ;
+    clbo:hasCategory <https://climatebowl.data.dice-research.org/resource/company1_product1_Wastedisposal1> ;
+    clbo:hasEmissionsfactor <https://climatebowl.data.dice-research.org/resource/THGEmissionen1_company1_product1> ;
     clbo:lifecyclePhase "End-of-Life" ;
     clbo:relevantPCF true ;
     clbo:resulingQuantityPerReferenceFlow "15.66"^^xsd:float ;
     clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
     clbo:scope 3.12e+00 .
 
-clbr:company1_product1_InputProcess_1Fluzz2 a clbo:Flow ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_1Fluzz2> a clbo:Flow ;
     clbo:allocationValueChain "Gate-to-Grave" ;
-    clbo:hasCategory clbr:company1_product1_Energy3 ;
-    clbo:hasEmissionsfactor clbr:THGEmissionen2_company1_product1 ;
+    clbo:hasCategory <https://climatebowl.data.dice-research.org/resource/company1_product1_Energy3> ;
+    clbo:hasEmissionsfactor <https://climatebowl.data.dice-research.org/resource/THGEmissionen2_company1_product1> ;
     clbo:lifecyclePhase "Utilization" ;
     clbo:relevantPCF true ;
     clbo:resulingQuantityPerReferenceFlowUnit "kWh" ;
     clbo:scope 3.11e+00 .
 
-clbr:company1_product1_InputProcess_2Fluzz3 a clbo:Flow ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_2Fluzz3> a clbo:Flow ;
     clbo:allocationValueChain "Cradle-to-Gate" ;
-    clbo:hasCategory clbr:company1_product1_Material5 ;
-    clbo:hasEmissionsfactor clbr:THGEmissionen3_company1_product1 ;
+    clbo:hasCategory <https://climatebowl.data.dice-research.org/resource/company1_product1_Material5> ;
+    clbo:hasEmissionsfactor <https://climatebowl.data.dice-research.org/resource/THGEmissionen3_company1_product1> ;
     clbo:lifecyclePhase "UpstreamChain" ;
     clbo:relevantPCF true ;
     clbo:resulingQuantityPerReferenceFlow "0.04"^^xsd:float ;
     clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
     clbo:scope 3.1e+00 .
 
-clbr:company1_product1_InputProcess_3Fluzz4 a clbo:Flow ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_InputProcess_3Fluzz4> a clbo:Flow ;
     clbo:allocationValueChain "Cradle-to-Gate" ;
-    clbo:hasCategory clbr:company1_product1_Material7 ;
-    clbo:hasEmissionsfactor clbr:THGEmissionen4_company1_product1 ;
+    clbo:hasCategory <https://climatebowl.data.dice-research.org/resource/company1_product1_Material7> ;
+    clbo:hasEmissionsfactor <https://climatebowl.data.dice-research.org/resource/THGEmissionen4_company1_product1> ;
     clbo:lifecyclePhase "UpstreamChain" ;
     clbo:relevantPCF true ;
     clbo:resulingQuantityPerReferenceFlow "0.01"^^xsd:float ;
     clbo:resulingQuantityPerReferenceFlowUnit "kg" ;
     clbo:scope 3.1e+00 .
 
-clbr:company1_product1_Material5 a clbo:Material ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_Material5> a clbo:Material ;
     rdfs:label "KB foot BG, blank" .
 
-clbr:company1_product1_Material7 a clbo:Material ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_Material7> a clbo:Material ;
     rdfs:label "KB foot BG, overmolding" .
 
-clbr:company1_product1_Wastedisposal1 a clbo:Wastedisposal ;
+<https://climatebowl.data.dice-research.org/resource/company1_product1_Wastedisposal1> a clbo:Wastedisposal ;
     rdfs:label "Disposal of used electronic industrial devices" .
 
-clbr:product_company1_product1 a clbo:Product ;
+<https://climatebowl.data.dice-research.org/resource/product_company1_product1> a clbo:Product ;
     rdfs:label "product1" ;
-    clbo:hasProcess clbr:Process_company1_product1_1,
-        clbr:Process_company1_product1_2,
-        clbr:Process_company1_product1_3,
-        clbr:Process_company1_product1_4 .
+    clbo:hasProcess <https://climatebowl.data.dice-research.org/resource/Process_company1_product1_1>,
+        <https://climatebowl.data.dice-research.org/resource/Process_company1_product1_2>,
+        <https://climatebowl.data.dice-research.org/resource/Process_company1_product1_3>,
+        <https://climatebowl.data.dice-research.org/resource/Process_company1_product1_4> .
 
 clbo:Energie a owl:Class ;
     rdfs:label "Energie"@du,

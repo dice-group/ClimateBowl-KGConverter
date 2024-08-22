@@ -34,8 +34,8 @@ function PcfTracking() {
   };
   if (data.length === 0 && query === "") {
     const queryValue = `PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX : <https://climatebowl.data.dice-research.org/ontology/>
-    PREFIX clbr: <https://climatebowl.data.dice-research.org/resource/>
+    PREFIX : <http://w3id.org/dice-research/climatebowl/ontology#>
+    PREFIX clbr: <http://w3id.org/dice-research/climatebowl/resource#>
       
       SELECT ?company ?processModule ?category ?Allocation ?scope ?lifecyclePhase ?flow ?value  ?unit ?emissionsfactor ?region ?year ((?emissionsfactor * ?value) AS ?result)
       WHERE {

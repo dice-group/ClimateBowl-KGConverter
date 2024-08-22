@@ -25,7 +25,7 @@ function DropdownComponent({ row, index, updatePCFValue }) {
     if (inputValue.length < 3) {
       return [];
     }
-    const queryValue = `PREFIX : <https://climatebowl.data.dice-research.org/ontology/>
+    const queryValue = `PREFIX : <http://w3id.org/dice-research/climatebowl/ontology#>
 
     SELECT DISTINCT ?name ?item ?region ?year ?emissionsfactor
     WHERE {
